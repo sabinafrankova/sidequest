@@ -1,0 +1,36 @@
+<!-- Sidequest booking confirmation. Paste this into the EmailJS template editor (Content > Edit content > Code editor).
+     Subject:  You're booked: {{class_title}} on {{class_date}}
+     To Email: {{email}}
+     Variables come from index.html (sendConfirmation): to_name, class_title, hobby, teacher, level,
+     class_date, class_time, place, loot, price, cancellation, booking_id. -->
+<div style="margin:0;padding:24px;background:#FAF7FF;font-family:Arial,Helvetica,sans-serif;color:#1A1430;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;margin:0 auto;background:#FFFFFF;border:2px solid #1A1430;border-radius:20px;">
+    <tr>
+      <td style="padding:24px 28px;background:#D9CCFF;border-bottom:2px dashed #1A1430;border-radius:18px 18px 0 0;">
+        <p style="margin:0 0 6px;font-size:16px;font-weight:bold;">sidequest</p>
+        <h1 style="margin:0;font-size:28px;line-height:1.2;">You're booked, {{to_name}}!</h1>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding:24px 28px;font-size:18px;line-height:1.5;">
+        <p style="margin:0 0 18px;">Your spot in <strong>{{class_title}}</strong> is saved. Here's everything you need.</p>
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-size:18px;line-height:1.5;">
+          <tr><td style="padding:6px 0;font-weight:bold;width:40%;">When</td><td style="padding:6px 0;">{{class_date}} · {{class_time}}</td></tr>
+          <tr><td style="padding:6px 0;font-weight:bold;">Where</td><td style="padding:6px 0;">{{place}}</td></tr>
+          <tr><td style="padding:6px 0;font-weight:bold;">Level</td><td style="padding:6px 0;">{{level}}</td></tr>
+          <tr><td style="padding:6px 0;font-weight:bold;">What to bring</td><td style="padding:6px 0;">{{loot}}</td></tr>
+          <tr><td style="padding:6px 0;font-weight:bold;">Price</td><td style="padding:6px 0;">{{price}}</td></tr>
+          <tr><td style="padding:6px 0;font-weight:bold;">Cancellation</td><td style="padding:6px 0;">{{cancellation}}</td></tr>
+          <tr><td style="padding:6px 0;font-weight:bold;">Booking number</td><td style="padding:6px 0;">{{booking_id}}</td></tr>
+        </table>
+        <p style="margin:22px 0 0;padding:14px 16px;background:#CFF7B5;border:2px solid #1A1430;border-radius:14px;font-weight:bold;">
+          After class, leave a review and get 10% off your next one.
+        </p>
+        <p style="margin:18px 0 0;">See you there,<br>{{teacher}} and the Sidequest team</p>
+      </td>
+    </tr>
+  </table>
+  <p style="max-width:560px;margin:16px auto 0;font-size:14px;color:#4E4766;text-align:center;">
+    A student project by Group 6 for INSY 440 E-Business at McGill. Nothing is charged.
+  </p>
+</div>
