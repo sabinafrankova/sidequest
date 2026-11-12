@@ -114,6 +114,7 @@ a:hover { color: var(--ink); }
   padding: 6px 14px; border: 2px solid var(--ink); border-radius: 999px;
   background: var(--mint); font-weight: 800; font-size: 18px; line-height: 1.2;
   transform: rotate(-2deg);
+  width: fit-content; justify-self: start;
 }
 .tag {
   display: inline-flex; align-items: center; gap: 6px;
@@ -204,6 +205,7 @@ a:hover { color: var(--ink); }
 .view { animation: view-in .35s ease; }
 @keyframes view-in { from { transform: translateY(10px); } to { transform: none; } }
 .page-head { display: grid; gap: var(--s2); padding-block: var(--s6) var(--s4); max-width: 900px; }
+.page-head > .link-btn { justify-self: start; }
 .section { padding-block: clamp(56px, 8vw, 96px); }
 .section-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: var(--s2); margin-bottom: var(--s4); }
 .section-head p { max-width: 46ch; }
@@ -423,6 +425,83 @@ select.input {
 .booking-item.is-hl { background: var(--mint); box-shadow: 6px 6px 0 var(--violet); }
 .hl-note { grid-column: 1 / -1; font-weight: 800; }
 
+/* ---------- calendar ---------- */
+.results-tools { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2); }
+.view-toggle { display: flex; gap: 4px; padding: 4px; border: 2px solid var(--ink); border-radius: 999px; background: var(--white); }
+.view-toggle .chip { border-color: transparent; }
+.view-toggle .chip[aria-pressed="true"] { border-color: var(--ink); }
+.cal { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.cal-day { display: grid; align-content: start; gap: 10px; min-width: 0; min-height: 200px; padding: 12px; border: 2px solid var(--ink); border-radius: 20px; background: var(--white); }
+.cal-day.is-today { background: var(--lilac); }
+.cal-day h3 { font-size: 20px; }
+.cal-date { color: var(--ink-soft); font-weight: 600; }
+.cal-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.cal-slot {
+  display: grid; gap: 4px; width: 100%; padding: 10px; text-align: left;
+  border: 2px solid var(--ink); border-radius: 14px; color: var(--ink);
+  font: 500 18px/1.25 var(--font-body); cursor: pointer;
+  box-shadow: 3px 3px 0 var(--ink); transition: transform .12s ease, box-shadow .12s ease;
+}
+.cal-slot:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--ink); }
+.cal-slot:disabled { background: var(--paper); color: var(--ink-soft); text-decoration: line-through; box-shadow: none; transform: none; cursor: not-allowed; }
+.cal-time { font-weight: 800; }
+.cal-title { font-weight: 700; overflow-wrap: break-word; hyphens: auto; }
+.cal-empty { color: var(--ink-soft); }
+.cal-note { margin-bottom: var(--s2); }
+.gcal { display: inline-flex; align-items: center; gap: 8px; }
+.gcal svg { width: 24px; height: 24px; flex: none; }
+
+/* ---------- ratings and reviews ---------- */
+.stars { position: relative; display: inline-block; line-height: 0; flex: none; }
+.stars-base, .stars-fill { display: flex; gap: 2px; }
+.stars-fill { position: absolute; inset: 0 auto 0 0; overflow: hidden; }
+.stars svg { width: 20px; height: 20px; flex: none; }
+.stars.lg svg { width: 30px; height: 30px; }
+.stars-base path { fill: var(--white); stroke: var(--ink); stroke-width: 1.6; }
+.stars-fill path { fill: var(--butter); stroke: var(--ink); stroke-width: 1.6; }
+.rating-btn {
+  display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; min-height: 44px; padding: 4px 0;
+  background: none; border: 0; color: var(--ink); font: 500 18px/1.3 var(--font-body); text-align: left; cursor: pointer;
+}
+.rating-btn .rb-link { font-weight: 800; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+.rating-btn:hover .rb-link { text-decoration-color: var(--violet); }
+.rv-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); grid-template-areas: "sum list" "form list"; grid-template-rows: auto 1fr; gap: var(--s4); align-items: start; }
+.rv-summary { grid-area: sum; display: grid; gap: 14px; justify-items: start; }
+.rv-main { grid-area: list; display: grid; gap: var(--s3); }
+#review-form { grid-area: form; }
+.rv-photo { width: 100%; aspect-ratio: 16 / 10; }
+.rv-avg { font-weight: 700; }
+.rv-avg span { font: 800 64px/1 var(--font-display); margin-right: 8px; }
+.dist { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; width: 100%; }
+.dist li { display: grid; grid-template-columns: 64px minmax(0, 1fr) 28px; gap: 10px; align-items: center; font-weight: 700; }
+.dist .bar { height: 16px; border: 2px solid var(--ink); border-radius: 999px; background: var(--white); overflow: hidden; }
+.dist .bar span { display: block; height: 100%; background: var(--violet); }
+.rv-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s2); }
+.review-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--s2); }
+.review { display: grid; gap: 12px; padding: var(--s3); border: 2px solid var(--ink); border-radius: 24px; background: var(--white); }
+.review.is-mine { background: var(--mint); box-shadow: 6px 6px 0 var(--violet); }
+.rv-head { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.rv-who { flex: 1; min-width: 120px; }
+.rv-name { font-weight: 800; }
+.avatar { width: 44px; height: 44px; flex: none; display: grid; place-items: center; border: 2px solid var(--ink); border-radius: 50%; font: 800 18px/1 var(--font-display); }
+.tag-mine { background: var(--white); }
+.stars-input { display: grid; gap: 8px; min-width: 0; margin: 0; padding: 0; border: 0; }
+.stars-input legend { padding: 0; margin-bottom: 8px; font-weight: 800; }
+.star-row { display: flex; gap: 4px; }
+.star-row label { padding: 4px; border-radius: 12px; line-height: 0; cursor: pointer; }
+.star-row label svg { width: 40px; height: 40px; transition: transform .12s ease; }
+.star-row label svg path { fill: var(--white); stroke: var(--ink); stroke-width: 1.6; }
+.star-row label:hover svg { transform: scale(1.12) rotate(-6deg); }
+.star-row input:focus-visible + label { outline: 3px solid var(--violet); outline-offset: 2px; }
+.star-row[data-show="1"] label:nth-of-type(-n+1) svg path,
+.star-row[data-show="2"] label:nth-of-type(-n+2) svg path,
+.star-row[data-show="3"] label:nth-of-type(-n+3) svg path,
+.star-row[data-show="4"] label:nth-of-type(-n+4) svg path,
+.star-row[data-show="5"] label:nth-of-type(-n+5) svg path { fill: var(--butter); }
+.rv-pick { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: var(--s2); align-items: center; }
+.rv-pick h2 { font-size: 24px; }
+.bi-actions { display: grid; gap: 4px; justify-items: start; }
+
 /* ---------- confetti ---------- */
 .confetti { position: fixed; top: -20px; z-index: 90; width: 12px; height: 16px; border: 2px solid var(--ink); border-radius: 3px; pointer-events: none;
   animation: fall var(--d) cubic-bezier(.25, .6, .4, 1) forwards; }
@@ -438,6 +517,8 @@ select.input {
   .bk-grid { grid-template-columns: 1fr; }
   .summary { position: static; }
   .profile-grid { grid-template-columns: 1fr; }
+  .rv-grid { grid-template-columns: 1fr; grid-template-areas: "sum" "list" "form"; grid-template-rows: auto; }
+  .cal { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .foot-grid { grid-template-columns: 1fr 1fr; }
   .foot-grid > :first-child { grid-column: 1 / -1; }
 }
@@ -448,8 +529,10 @@ select.input {
   .class-card .thumb { aspect-ratio: 16 / 10; }
   .thumb { border-radius: 18px; }
   .foot-grid { grid-template-columns: 1fr; }
+  .cal { grid-template-columns: 1fr; }
+  .cal-day { min-height: 0; }
   .booking-item { grid-template-columns: 56px minmax(0, 1fr); }
-  .booking-item .link-btn { grid-column: 1 / -1; justify-self: start; }
+  .booking-item .bi-actions { grid-column: 1 / -1; }
   .ticket dl { grid-template-columns: 1fr; gap: 4px; }
   .ticket dd { margin-bottom: 10px; }
   .cta .btn { width: 100%; }
@@ -529,7 +612,7 @@ select.input {
     <div class="wrap hero">
       <div class="hero-panel">
         <div class="hero-copy">
-          <p class="sticker">Montréal</p>
+          <p class="sticker">Build yourself</p>
           <h1 class="t-title" id="home-title" tabindex="-1" data-focus>Your next sidequest is <span class="roll" id="roll-word">pottery</span>.</h1>
           <p class="lede">Try a new hobby with someone who loves it. Your first class is free, then you pay per class. No semester lock&#8209;in.</p>
           <a class="btn btn-ink" href="#classes" data-track="book_class_click" data-where="home_hero">Book a class</a>
@@ -605,19 +688,29 @@ select.input {
             <legend>Filter by day</legend>
             <div class="chip-row" id="day-chips"></div>
           </fieldset>
+          <fieldset class="filter-group">
+            <legend>Filter by time</legend>
+            <div class="chip-row" id="time-chips"></div>
+          </fieldset>
         </div>
         <div class="search-box">
           <label for="search">Search</label>
           <div class="search-field">
             <svg viewBox="0 0 24 24" fill="none" stroke="#1A1430" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>
-            <input class="input" id="search" type="search" placeholder="Try guitar or Emma" autocomplete="off">
+            <input class="input" id="search" type="search" placeholder="Try guitar or Plateau" autocomplete="off">
           </div>
         </div>
       </div>
 
       <div class="results-meta">
         <p id="results-count" aria-live="polite"></p>
-        <button class="link-btn" type="button" data-action="clear-filter" id="clear-top" hidden>Clear filter</button>
+        <div class="results-tools">
+          <button class="link-btn" type="button" data-action="clear-filter" id="clear-top" hidden>Clear filter</button>
+          <div class="view-toggle" id="view-toggle" role="group" aria-label="Show classes as">
+            <button class="chip" type="button" data-action="set-view" data-value="list">List</button>
+            <button class="chip" type="button" data-action="set-view" data-value="calendar">Calendar</button>
+          </div>
+        </div>
       </div>
       <div id="class-results"></div>
     </div>
@@ -685,6 +778,11 @@ select.input {
     <div class="wrap" id="confirm-body"></div>
   </section>
 
+  <!-- ================= REVIEWS ================= -->
+  <section class="view" data-view="reviews" aria-labelledby="reviews-title" hidden>
+    <div class="wrap" id="reviews-body"></div>
+  </section>
+
   <!-- ================= PROFILE ================= -->
   <section class="view" data-view="profile" aria-labelledby="profile-title" hidden>
     <div class="wrap" id="profile-body"></div>
@@ -745,82 +843,143 @@ select.input {
   const DAY_ORDER = [1, 2, 3, 4, 5, 6, 0];
   const LEVELS = { 1: "Beginner", 2: "Intermediate", 3: "Advanced" };
   const fmtHour = (h) => `${h % 12 || 12}${h >= 12 ? "pm" : "am"}`;
+  const TIMES = { morning: "Morning", afternoon: "Afternoon", evening: "Evening" };
+  const timeOf = (h) => (h < 12 ? "morning" : h < 17 ? "afternoon" : "evening");
+  const fmtClock = (mins) => { const h = Math.floor(mins / 60) % 24, m = mins % 60; return `${h % 12 || 12}${m ? `:${String(m).padStart(2, "0")}` : ""}${h >= 12 ? "pm" : "am"}`; };
+  const lengthOf = (c) => c.mins || 60;
+  const fmtRange = (c, s) => `${fmtClock(s.hour * 60)}–${fmtClock(s.hour * 60 + lengthOf(c))}`;
   const slot = (id, day, hour, spots) => ({ id, day, hour, spots, label: `${DAYS[day]} · ${fmtHour(hour)}` });
 
   const CLASSES = [
     { id: "dance", hobby: "Dance", title: "Dance with Emma", teacher: "Emma", founder: true, lvl: 1, level: "Total beginner", color: "pink", price: 10,
       blurb: "Hip-hop basics in a small group. You leave knowing one short routine.",
       loot: "Nothing to bring. Wear comfy clothes and sneakers.", lootShort: "Comfy clothes and sneakers",
+      where: "Dance studio · Plateau-Mont-Royal",
       photo: "dance.jpg", alt: "A small group learning a hip-hop routine in a dance studio",
       slots: [slot("dance-mon17", 1, 17, 4), slot("dance-wed19", 3, 19, 2)] },
     { id: "contemporary", hobby: "Dance", title: "Contemporary dance with Zoé", teacher: "Zoé", lvl: 3, level: "Advanced", color: "pink", price: 14,
       blurb: "Floor work, turns and a full piece learned over the session. For dancers with a few years behind them.",
       loot: "Wear clothes you can move in. Bare feet or socks.", lootShort: "Clothes you can move in",
+      where: "Dance studio · Mile End",
       photo: "dance-advanced.jpg", alt: "A dancer mid-leap in a bright studio",
       slots: [slot("contemporary-fri19", 5, 19, 2)] },
     { id: "guitar", hobby: "Guitar", title: "Guitar with Nahema", teacher: "Nahema", founder: true, lvl: 1, level: "Total beginner", color: "butter", price: 12,
       blurb: "Your first three chords and one song you can actually play.",
       loot: "Guitar provided. Bring your own if you have one.", lootShort: "Guitar provided",
+      where: "Music room · Milton-Parc",
       photo: "guitar.jpg", alt: "Hands playing chords on an acoustic guitar",
       slots: [slot("guitar-tue18", 2, 18, 3), slot("guitar-fri16", 5, 16, 5)] },
     { id: "fingerstyle", hobby: "Guitar", title: "Fingerstyle guitar with Omar", teacher: "Omar", lvl: 3, level: "Advanced", color: "butter", price: 14,
       blurb: "Travis picking, bass lines and a full fingerstyle arrangement. You should already know your barre chords.",
       loot: "Bring your own guitar.", lootShort: "Your own guitar",
+      where: "Music room · Milton-Parc",
       photo: "guitar-advanced.jpg", alt: "Close-up of fingers picking the strings of a guitar",
       slots: [slot("fingerstyle-sun16", 0, 16, 3)] },
     { id: "tennis", hobby: "Tennis", title: "Tennis with Sabina", teacher: "Sabina", founder: true, lvl: 1, level: "Beginner", color: "mint", price: 10,
       blurb: "Grip, forehand and a first rally. Small group, lots of balls.",
       loot: "Racket and balls provided. Bring sneakers.", lootShort: "Racket provided, bring sneakers",
+      where: "Indoor courts · Rosemont",
       photo: "tennis.jpg", alt: "A player hitting a forehand on an outdoor tennis court",
       slots: [slot("tennis-thu18", 4, 18, 3), slot("tennis-sat15", 6, 15, 1)] },
     { id: "badminton", hobby: "Badminton", title: "Badminton with Kevin", teacher: "Kevin", lvl: 2, level: "Intermediate", color: "mint", price: 10,
       blurb: "Footwork, smashes and doubles tactics. For players who can already keep a rally going.",
       loot: "Rackets and shuttles provided. Bring indoor shoes.", lootShort: "Racket provided, bring indoor shoes",
+      where: "Sports hall · Côte-des-Neiges",
       photo: "badminton.jpg", alt: "A player jumping for a smash in a sports hall",
       slots: [slot("badminton-tue20", 2, 20, 4), slot("badminton-fri18", 5, 18, 2)] },
     { id: "pottery", hobby: "Pottery", title: "Pottery with Viktorie", teacher: "Viktorie", founder: true, lvl: 1, level: "Total beginner", color: "peach", price: 12,
       blurb: "Hand-build a small cup and learn how the wheel works.",
       loot: "Clay and tools included. Wear clothes that can get messy.", lootShort: "Clay and tools included",
+      mins: 90,
+      where: "Clay studio · Saint-Henri",
       photo: "pottery.jpg", alt: "Hands shaping a small clay cup",
       slots: [slot("pottery-wed18", 3, 18, 2), slot("pottery-sun14", 0, 14, 4)] },
     { id: "wheel", hobby: "Pottery", title: "Wheel throwing with Marc", teacher: "Marc", lvl: 2, level: "Intermediate", color: "peach", price: 14,
       blurb: "Centre, open and pull taller pieces on the wheel. For people who have tried clay before.",
       loot: "Clay, tools and an apron included.", lootShort: "Clay, tools and apron included",
+      mins: 90,
+      where: "Clay studio · Saint-Henri",
       photo: "pottery-wheel.jpg", alt: "Hands centring clay on a spinning pottery wheel",
       slots: [slot("wheel-thu19", 4, 19, 3)] },
     { id: "photo", hobby: "Photography", title: "Photography with Man Ning", teacher: "Man Ning", founder: true, lvl: 1, level: "Total beginner", color: "sky", price: 8,
       blurb: "Light, framing and one photo walk around the neighbourhood.",
       loot: "Bring your phone. No camera needed.", lootShort: "Just your phone",
+      where: "Meet at Mont-Royal metro · Plateau",
       photo: "photography.jpg", alt: "Someone taking a photo with their phone on a city street",
       slots: [slot("photo-tue17", 2, 17, 6), slot("photo-sat11", 6, 11, 3)] },
     { id: "drawing", hobby: "Drawing", title: "Figure drawing with Julien", teacher: "Julien", lvl: 3, level: "Advanced", color: "sky", price: 12,
       blurb: "Long poses, proportion and shading from a live model. Bring the sketchbook you like best.",
       loot: "Paper and charcoal provided.", lootShort: "Paper and charcoal provided",
+      mins: 90,
+      where: "Art studio · Mile End",
       photo: "drawing.jpg", alt: "A charcoal sketch of a figure on paper",
       slots: [slot("drawing-wed20", 3, 20, 6)] },
     { id: "sewing", hobby: "Sewing", title: "Sewing with Amira", teacher: "Amira", lvl: 1, level: "Beginner", color: "lilac", price: 12,
       blurb: "Learn the machine and sew your own tote bag to take home.",
       loot: "Sewing machines and fabric provided.", lootShort: "Machines and fabric provided",
+      mins: 90,
+      where: "Sewing studio · Villeray",
       photo: "sewing.jpg", alt: "Fabric being guided through a sewing machine",
       slots: [slot("sewing-mon18", 1, 18, 4), slot("sewing-sat13", 6, 13, 3)] },
     { id: "pilates", hobby: "Pilates", title: "Pilates with Inès", teacher: "Inès", lvl: 1, level: "Beginner", color: "lilac", price: 10,
       blurb: "Core, posture and breathing on the mat. Slow pace, lots of corrections.",
       loot: "Mats provided. Wear something you can stretch in.", lootShort: "Mats provided",
+      where: "Movement studio · Griffintown",
       photo: "pilates.jpg", alt: "A small group doing Pilates on mats",
       slots: [slot("pilates-mon8", 1, 8, 5), slot("pilates-thu12", 4, 12, 5)] },
     { id: "skating", hobby: "Ice skating", title: "Ice skating with Tomáš", teacher: "Tomáš", lvl: 1, level: "Total beginner", color: "sky", price: 8,
       blurb: "Balance, gliding and stopping without grabbing the boards. Montréal winter, sorted.",
       loot: "Bring skates, or rent a pair at the rink.", lootShort: "Skates, or rent at the rink",
+      where: "Indoor arena · Plateau-Mont-Royal",
       photo: "ice-skating.jpg", alt: "Skaters on an outdoor ice rink in winter",
       slots: [slot("skating-sun11", 0, 11, 6), slot("skating-wed17", 3, 17, 5)] },
     { id: "terrarium", hobby: "Terrariums", title: "Terrarium making with Priya", teacher: "Priya", lvl: 1, level: "Total beginner", color: "mint", price: 14,
       blurb: "Build a small glass garden with moss and plants, and learn how to keep it alive.",
       loot: "Jar, soil and plants included. You take your terrarium home.", lootShort: "Jar and plants included",
+      mins: 90,
+      where: "Workshop space · Verdun",
       photo: "terrarium.jpg", alt: "A small glass terrarium with moss and plants",
       slots: [slot("terrarium-sat17", 6, 17, 4)] },
   ];
   const CANCEL = "Free up to 24 hours before class";
-  const WHERE = "Montréal. Your teacher shares the exact spot before class.";
+  const WHERE_NOTE = "Your teacher sends the exact address before class.";
+
+  /* SAMPLE reviews for the course demo, written by the team, not by real learners.
+     They are labelled "Sample review" on the page. Replace them with real ones, or keep the label. */
+  const SAMPLE_REVIEWS = {
+    dance: [["Léa M.", 5, "2026-10", "I had never danced before and still left with the whole routine. Emma breaks every move into tiny steps."],
+            ["Jonas K.", 4, "2026-10", "Fun and friendly. The room gets warm, so bring water."],
+            ["Aïcha B.", 5, "2026-09", ""]],
+    contemporary: [["Camille R.", 5, "2026-10", "A proper advanced class. The floor work was hard in the best way."],
+                   ["Mateo S.", 4, "2026-09", "Great piece, but the warm-up is fast if you haven't danced in a while."]],
+    guitar: [["Ben T.", 5, "2026-10", "Three chords in one hour, and I actually played a song at the end. Nahema is very patient."],
+             ["Sofia L.", 4, "2026-10", "Loved it. My fingers hurt the next day, which apparently is normal."],
+             ["Hugo P.", 5, "2026-09", ""]],
+    fingerstyle: [["Nina D.", 5, "2026-10", "Exactly the push I needed after years of strumming. Omar explains why each pattern works."],
+                  ["Alex V.", 3, "2026-09", "Good content, but it moves quickly. Know your barre chords before you come."]],
+    tennis: [["Maya C.", 5, "2026-10", "My first real rally! Small group, so we each got lots of turns."],
+             ["Theo G.", 4, "2026-10", "Very clear tips on grip. Would love a second level."],
+             ["Rosa F.", 5, "2026-09", ""]],
+    badminton: [["Daniel W.", 4, "2026-10", "Good footwork drills. The doubles tactics were the best part."],
+                ["Yuki H.", 5, "2026-09", "Kevin spots what you're doing wrong in seconds. My smash is way better."]],
+    pottery: [["Clara N.", 5, "2026-10", "So calming. I took home a slightly wonky cup and I love it."],
+              ["Sam O.", 5, "2026-10", "Everything was provided, even aprons. Viktorie made it easy to just try."],
+              ["Laura P.", 4, "2026-09", "Great class. Wear old clothes, the clay gets everywhere."]],
+    wheel: [["Elise J.", 4, "2026-10", "Centring finally clicked for me. I wish it was a bit longer."],
+            ["Omari T.", 5, "2026-09", ""]],
+    photo: [["Lucas B.", 5, "2026-10", "I only had my phone and still learned a lot about light. The photo walk was the highlight."],
+            ["Hana S.", 4, "2026-09", "Nice pace and lots of practical tips. It gets cold outside, so dress warm."]],
+    drawing: [["Marie-Ève D.", 5, "2026-10", "Long poses and real feedback on proportions. Exactly what I wanted."],
+              ["Raphaël C.", 4, "2026-09", "Very good, but the room is small, so arrive early for a good spot."]],
+    sewing: [["Chloé A.", 5, "2026-10", "I made a whole tote bag! Amira helped me thread the machine about five times without judging."],
+             ["Victor L.", 4, "2026-09", "Clear and relaxed. The tote takes the full session, so don't plan anything right after."]],
+    pilates: [["Nadia R.", 5, "2026-10", "Lots of corrections, which is what I needed. My back thanks me."],
+              ["Paul M.", 4, "2026-10", ""]],
+    skating: [["Emily Z.", 5, "2026-10", "I can finally stop without grabbing the boards. Tomáš is very encouraging."],
+              ["Karim E.", 4, "2026-09", "Fun class. Renting skates at the arena was easy."]],
+    terrarium: [["Ana K.", 5, "2026-10", "Such a cute workshop. Mine is still alive three weeks later!"],
+                ["Felix N.", 4, "2026-09", "Relaxing, and everything was included. A bit pricey, but you keep the terrarium."]],
+  };
 
   /* ---------- confirmation email (EmailJS REST API) ----------
      Paste your three EmailJS values here to switch emails on. Setup steps are in README.md.
@@ -847,8 +1006,8 @@ select.input {
 
   /* ---------- state ---------- */
   const KEY = "sidequest-demo-v1";
-  let store = { bookings: [], user: null, taken: {} };
-  const ui = { hobby: "all", level: "any", day: "any", q: "", pendingClass: null, pendingSlot: null, lastBookingId: null, highlight: null, roll: "pottery" };
+  let store = { bookings: [], user: null, taken: {}, reviews: [], credits: {} };
+  const ui = { view: "list", time: "any", reviewClass: null, reviewSort: "newest", reviewFocus: false, hobby: "all", level: "any", day: "any", q: "", pendingClass: null, pendingSlot: null, lastBookingId: null, highlight: null, roll: "pottery" };
   const loadLocal = () => { try { const d = JSON.parse(localStorage.getItem(KEY) || "null"); if (d && Array.isArray(d.bookings)) return d; } catch (e) { /* storage blocked */ } return null; };
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) { /* storage blocked: keep in memory */ } };
   const spotsLeft = (s) => Math.max(0, s.spots - (store.taken[s.id] || 0));
@@ -865,6 +1024,36 @@ select.input {
     return d;
   };
   const fmtDate = (d) => d.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" });
+  const fmtMoney = (v) => (Number.isInteger(v) ? `$${v}` : `$${v.toFixed(2)}`);
+
+  /* ---------- ratings ---------- */
+  const monthKey = () => { const d = new Date(); return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`; };
+  const monthLabel = (k) => { const [y, m] = k.split("-").map(Number); return new Date(y, m - 1, 1).toLocaleDateString("en-GB", { month: "long", year: "numeric" }); };
+  const allReviews = (id) => (SAMPLE_REVIEWS[id] || [])
+    .map(([name, rating, date, text], i) => ({ id: `s-${id}-${i}`, classId: id, name, rating, date, text, ts: Date.parse(`${date}-15`) - i, sample: true }))
+    .concat(store.reviews.filter((r) => r.classId === id));
+  const ratingOf = (id) => {
+    const list = allReviews(id);
+    const count = list.length;
+    return { count, avg: count ? list.reduce((t, r) => t + r.rating, 0) / count : 0, samples: list.filter((r) => r.sample).length };
+  };
+  const countText = (r) => (r.samples === r.count
+    ? `${r.count} sample ${r.count === 1 ? "review" : "reviews"}`
+    : `${r.count} reviews, ${r.samples} of them samples`);
+  const STAR_PATH = "M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z";
+  const starRow = () => Array.from({ length: 5 }, () => `<svg viewBox="0 0 24 24"><path d="${STAR_PATH}"/></svg>`).join("");
+  const starsHTML = (v, size = "") => `<span class="stars ${size}" role="img" aria-label="Rated ${v.toFixed(1)} out of 5">
+      <span class="stars-base" aria-hidden="true">${starRow()}</span><span class="stars-fill" aria-hidden="true" style="width:${(v / 5) * 100}%">${starRow()}</span></span>`;
+  const ratingButtonHTML = (c) => {
+    const r = ratingOf(c.id);
+    return `<button class="rating-btn" type="button" data-action="open-reviews" data-class="${c.id}">${starsHTML(r.avg)}<span><strong>${r.avg.toFixed(1)}</strong> · ${countText(r)}</span><span class="rb-link">Read reviews</span></button>`;
+  };
+  // price for this email: first class free; a review earns 10% off the next paid class (CP1 return-phase measure)
+  function priceFor(email, c) {
+    if (isFirstFor(email)) return { free: true, amount: 0, discounted: false };
+    if ((store.credits[email] || 0) > 0) return { free: false, amount: Math.round(c.price * 90) / 100, discounted: true };
+    return { free: false, amount: c.price, discounted: false };
+  }
 
   /* ---------- home: spin card ---------- */
   function rollCardHTML(c) {
@@ -873,7 +1062,9 @@ select.input {
       <div class="qc-top"><span class="tag">Lvl ${c.lvl} · ${esc(c.level)}</span><span class="free-badge">First class free</span></div>
       <div class="qc-art c-${c.color}">${photo(c)}</div>
       <h2 class="qc-title">${esc(c.title)}</h2>
+      ${ratingButtonHTML(c)}
       <p class="qc-line"><strong>Next:</strong> ${esc(next.label)}</p>
+      <p class="qc-line"><strong>Where:</strong> ${esc(c.where)}</p>
       <p class="qc-line"><strong>Loot:</strong> ${esc(c.lootShort)}</p>
       <button class="link-btn" type="button" data-action="see-hobby" data-hobby="${esc(c.hobby)}">See ${esc(c.hobby.toLowerCase())} classes</button>`;
   }
@@ -917,6 +1108,8 @@ select.input {
     const words = ["first class free", "pay per class", "no semester lock-in", "every level welcome", "small groups", "real feedback", "Montréal"];
     const run = words.map((w) => `<span>${esc(w)}</span><span>/</span>`).join("");
     $("#marquee").innerHTML = run + run;
+    $("#time-chips").innerHTML = [`<button class="chip" type="button" data-action="filter-time" data-value="any">Any time</button>`]
+      .concat(Object.entries(TIMES).map(([k, name]) => `<button class="chip" type="button" data-action="filter-time" data-value="${k}">${name}</button>`)).join("");
     $("#level-chips").innerHTML = [`<button class="chip" type="button" data-action="filter-level" data-value="any">Any level</button>`]
       .concat(Object.entries(LEVELS).map(([n, name]) => `<button class="chip" type="button" data-action="filter-level" data-value="${n}">${name}</button>`)).join("");
 
@@ -931,7 +1124,7 @@ select.input {
   }
 
   /* ---------- classes ---------- */
-  const matchesQ = (c, q) => !q || [c.title, c.hobby, c.teacher, c.blurb, c.level].join(" ").toLowerCase().includes(q);
+  const matchesQ = (c, q) => !q || [c.title, c.hobby, c.teacher, c.blurb, c.level, c.where].join(" ").toLowerCase().includes(q);
 
   function classCardHTML(c, slots) {
     const slotBtns = slots.map((s) => {
@@ -942,9 +1135,11 @@ select.input {
       <div class="thumb c-${c.color}">${photo(c)}</div>
       <div class="cc-main">
         <h2>${esc(c.title)}</h2>
+        ${ratingButtonHTML(c)}
         <p class="cc-teacher">${esc(c.hobby)} · taught by ${esc(c.teacher)}${c.founder ? ", Sidequest founder" : ""}</p>
-        <div class="meta-row"><span class="tag">Lvl ${c.lvl} · ${esc(c.level)}</span></div>
+        <div class="meta-row"><span class="tag">Lvl ${c.lvl} · ${esc(c.level)}</span><span class="tag">${lengthOf(c) === 60 ? "1 hour" : `${lengthOf(c) / 60} hours`}</span></div>
         <p>${esc(c.blurb)}</p>
+        <p class="cc-loot"><strong>Where:</strong> ${esc(c.where)}</p>
         <p class="cc-loot"><strong>Loot to bring:</strong> ${esc(c.loot)}</p>
         <div class="slots" aria-label="Times for ${esc(c.title)}">${slotBtns}</div>
       </div>
@@ -955,22 +1150,55 @@ select.input {
     </li>`;
   }
 
+  function calendarHTML(list) {
+    const now = new Date();
+    const days = Array.from({ length: 7 }, (_, i) => { const d = new Date(now); d.setHours(0, 0, 0, 0); d.setDate(now.getDate() + i); return d; });
+    const sameDay = (a, b) => a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+    const items = list.flatMap(({ c, slots }) => slots.map((s) => ({ c, s, at: nextDate(s.day, s.hour) })));
+    const shown = items.filter((it) => days.some((d) => sameDay(d, it.at)));
+    const cols = days.map((d, i) => {
+      const todays = shown.filter((it) => sameDay(d, it.at)).sort((a, b) => a.at - b.at);
+      const name = i === 0 ? "Today" : i === 1 ? "Tomorrow" : DAYS[d.getDay()];
+      const date = d.toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
+      return `<section class="cal-day ${i === 0 ? "is-today" : ""}" aria-labelledby="cal-d${i}">
+        <div><h3 id="cal-d${i}">${name}</h3><p class="cal-date">${date}</p></div>
+        ${todays.length ? `<ul class="cal-list">${todays.map(({ c, s }) => {
+          const left = spotsLeft(s);
+          return `<li><button class="cal-slot c-${c.color}" type="button" data-action="pick-slot" data-class="${c.id}" data-slot="${s.id}" ${left ? "" : "disabled"}>
+            <span class="cal-time">${fmtRange(c, s)}</span><span class="cal-title">${esc(c.title)}</span>
+            <span>Lvl ${c.lvl} · ${left ? `${left} ${left === 1 ? "spot" : "spots"} left` : "full"}</span></button></li>`;
+        }).join("")}</ul>` : `<p class="cal-empty">No classes</p>`}
+      </section>`;
+    }).join("");
+    return { count: shown.length, html: `${shown.length ? "" : `<p class="note cal-note">Nothing that matches in the next 7 days. Switch to List to see every time.</p>`}<div class="cal">${cols}</div>` };
+  }
+
   function renderClasses() {
     $$("#hobby-chips .chip").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.value === ui.hobby)));
     $$("#level-chips .chip").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.value === String(ui.level))));
     $$("#day-chips .chip").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.value === String(ui.day))));
+    $$("#time-chips .chip").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.value === ui.time)));
+    $$("#view-toggle .chip").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.value === ui.view)));
     if ($("#search").value !== ui.q) $("#search").value = ui.q;
     const q = ui.q.trim().toLowerCase();
     const day = ui.day === "any" ? null : Number(ui.day);
     const lvl = ui.level === "any" ? null : Number(ui.level);
+    const time = ui.time === "any" ? null : ui.time;
     const fits = (c) => (ui.hobby === "all" || c.hobby === ui.hobby) && (lvl === null || c.lvl === lvl) && matchesQ(c, q);
+    const slotOk = (s) => (day === null || s.day === day) && (time === null || timeOf(s.hour) === time);
     const list = CLASSES
       .filter(fits)
-      .map((c) => ({ c, slots: day === null ? c.slots : c.slots.filter((s) => s.day === day) }))
+      .map((c) => ({ c, slots: c.slots.filter(slotOk) }))
       .filter((x) => x.slots.length);
-    const filtering = ui.hobby !== "all" || lvl !== null || day !== null || q;
+    const filtering = ui.hobby !== "all" || lvl !== null || day !== null || time !== null || q;
     $("#clear-top").hidden = !filtering || !list.length;
 
+    if (list.length && ui.view === "calendar") {
+      const cal = calendarHTML(list);
+      $("#results-count").textContent = `${cal.count} ${cal.count === 1 ? "time" : "times"} in the next 7 days`;
+      $("#class-results").innerHTML = cal.html;
+      return;
+    }
     if (list.length) {
       $("#results-count").textContent = `${list.length} ${list.length === 1 ? "class" : "classes"}${filtering ? " match" : ""}`;
       $("#class-results").innerHTML = `<ul class="class-list">${list.map((x) => classCardHTML(x.c, x.slots)).join("")}</ul>`;
@@ -982,11 +1210,13 @@ select.input {
     const what = ui.hobby === "all"
       ? (q ? `${lvlWord}“${esc(ui.q.trim())}” class` : `${lvlWord}class`)
       : `${lvlWord}${esc(ui.hobby.toLowerCase())} class`;
-    const heading = day !== null ? `No ${what} found on ${DAYS[day]}.` : `No ${what} found.`;
+    const when = day !== null && time !== null ? ` on ${DAYS[day]} ${time}`
+      : day !== null ? ` on ${DAYS[day]}` : time !== null ? ` in the ${time}` : "";
+    const heading = `No ${what} found${when}.`;
     let alts = [];
-    if (day !== null) {
+    if (day !== null || time !== null) {
       alts = CLASSES.filter(fits)
-        .flatMap((c) => c.slots.filter((s) => s.day !== day && spotsLeft(s) > 0).map((s) => ({ c, s })))
+        .flatMap((c) => c.slots.filter((s) => !slotOk(s) && spotsLeft(s) > 0).map((s) => ({ c, s })))
         .sort((a, b) => nextDate(a.s.day, a.s.hour) - nextDate(b.s.day, b.s.hour))
         .slice(0, 3);
     }
@@ -996,10 +1226,10 @@ select.input {
         <h2>${heading}</h2>
         ${alts.length ? `<p>But there are spots on:</p>
           <div class="alts">${alts.map(({ c, s }) => `<button class="btn btn-mint btn-block" type="button" data-action="pick-slot" data-class="${c.id}" data-slot="${s.id}">${showClass ? `${esc(c.title)}: ` : ""}${esc(s.label)}</button>`).join("")}</div>
-          <p class="or">or</p>` : `<p>Try another day, level or word.</p>`}
+          <p class="or">or</p>` : `<p>Try another day, time, level or word.</p>`}
         <button class="btn" type="button" data-action="clear-filter">Clear filter</button>
       </div>`;
-    track("filter_no_results", { hobby: ui.hobby, level: lvl === null ? "any" : LEVELS[lvl], day: day === null ? "any" : DAYS[day], query: q });
+    track("filter_no_results", { hobby: ui.hobby, level: lvl === null ? "any" : LEVELS[lvl], day: day === null ? "any" : DAYS[day], time: ui.time, query: q });
   }
 
   /* ---------- booking ---------- */
@@ -1031,13 +1261,16 @@ select.input {
         <button class="btn btn-ink btn-block" type="submit" form="bk-form">Book now</button>`;
       return;
     }
-    const free = isFirstFor(email);
-    const price = free ? (email ? "Free · your first class" : "Free if it's your first class") : `$${c.price} · you've had your free class`;
+    const pf = priceFor(email, c);
+    const price = pf.free ? (email ? "Free · your first class" : "Free if it's your first class")
+      : pf.discounted ? `${fmtMoney(pf.amount)} · 10% off for your review (was $${c.price})`
+      : `$${c.price} · you've had your free class`;
     box.innerHTML = `
       <div class="sum-head"><div class="thumb c-${c.color}">${photo(c, false)}</div><div><p class="muted">${esc(c.hobby)}</p><h2 id="sum-title">${esc(c.title)}</h2></div></div>
       <dl class="sum-list">
         <div><dt>When</dt><dd>${s ? esc(s.label) : "Pick a time"}</dd></div>
         <div><dt>Level</dt><dd>Lvl ${c.lvl} · ${esc(c.level)}</dd></div>
+        <div><dt>Where</dt><dd>${esc(c.where)}</dd></div>
         <div><dt>Loot to bring</dt><dd>${esc(c.loot)}</dd></div>
         <div><dt>Price</dt><dd>${price}</dd></div>
         <div><dt>Cancellation</dt><dd>${CANCEL}</dd></div>
@@ -1113,12 +1346,14 @@ select.input {
     const dup = store.bookings.find((b) => b.email === email && b.slotId === slotId);
     if (dup) { showAlreadyBooked(dup, c); return; }
 
-    const free = isFirstFor(email);
+    const pf = priceFor(email, c);
+    const free = pf.free;
     const booking = {
       id: `b${Date.now().toString(36)}`, classId: c.id, slotId, email, first,
       last: $("#f-last").value.trim(), phone: $("#f-phone").value.trim(), notes: $("#f-notes").value.trim(),
-      price: free ? 0 : c.price, createdAt: new Date().toISOString(),
+      price: pf.amount, discounted: pf.discounted, createdAt: new Date().toISOString(),
     };
+    if (pf.discounted) store.credits[email] -= 1;
     store.bookings.push(booking);
     store.taken[slotId] = (store.taken[slotId] || 0) + 1;
     if (!store.user) store.user = { first, email };
@@ -1149,9 +1384,9 @@ select.input {
           template_params: {
             email: b.email, to_name: b.first, booking_id: b.id,
             class_title: c.title, hobby: c.hobby, teacher: c.teacher, level: c.level,
-            class_date: fmtDate(nextDate(s.day, s.hour)), class_time: fmtHour(s.hour),
-            place: WHERE, loot: c.loot, cancellation: CANCEL,
-            price: b.price === 0 ? "Free, your first class" : `$${b.price}`,
+            class_date: fmtDate(nextDate(s.day, s.hour)), class_time: fmtRange(c, s),
+            place: `${c.where}. ${WHERE_NOTE}`, loot: c.loot, cancellation: CANCEL,
+            price: b.price === 0 ? "Free, your first class" : `${fmtMoney(b.price)}${b.discounted ? " (10% off for your review)" : ""}`,
           },
         }),
       });
@@ -1185,6 +1420,24 @@ select.input {
       .finally(() => { save(); updateEmailStatus(b); });
   }
 
+  /* ---------- add to Google Calendar ---------- */
+  function gcalURL(b) {
+    const c = getClass(b.classId), s = getSlot(c, b.slotId);
+    const start = nextDate(s.day, s.hour), end = new Date(start.getTime() + lengthOf(c) * 60000);
+    const pad = (n) => String(n).padStart(2, "0");
+    const stamp = (d) => `${d.getFullYear()}${pad(d.getMonth() + 1)}${pad(d.getDate())}T${pad(d.getHours())}${pad(d.getMinutes())}00`;
+    const q = new URLSearchParams({
+      action: "TEMPLATE",
+      text: `${c.title} · Sidequest`,
+      dates: `${stamp(start)}/${stamp(end)}`,
+      ctz: "America/Toronto",
+      location: `${c.where}, Montréal`,
+      details: `What to bring: ${c.loot}\nCancellation: ${CANCEL}\n${WHERE_NOTE}`,
+    });
+    return `https://calendar.google.com/calendar/render?${q.toString()}`;
+  }
+  const CAL_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></svg>`;
+
   /* ---------- confirmation ---------- */
   function renderConfirmation() {
     const b = store.bookings.find((x) => x.id === ui.lastBookingId);
@@ -1205,17 +1458,18 @@ select.input {
           <div><p class="muted">${esc(c.hobby)}</p><h2>${esc(c.title)}</h2></div>
           ${b.price === 0 ? `<span class="stamp">First class free</span>` : ""}</div>
         <dl>
-          <dt>When</dt><dd>${esc(fmtDate(nextDate(s.day, s.hour)))} · ${esc(fmtHour(s.hour))}</dd>
-          <dt>Where</dt><dd>${WHERE}</dd>
+          <dt>When</dt><dd>${esc(fmtDate(nextDate(s.day, s.hour)))} · ${fmtRange(c, s)}</dd>
+          <dt>Where</dt><dd>${esc(c.where)}. ${WHERE_NOTE}</dd>
           <dt>Loot to bring</dt><dd>${esc(c.loot)}</dd>
-          <dt>Price</dt><dd>${b.price === 0 ? "Free, your first class" : `$${b.price}`}</dd>
+          <dt>Price</dt><dd>${b.price === 0 ? "Free, your first class" : `${fmtMoney(b.price)}${b.discounted ? " (10% off for your review)" : ""}`}</dd>
           <dt>Cancellation</dt><dd>${CANCEL}</dd>
           <dt>Booked with</dt><dd>${esc(b.email)}</dd>
         </dl>
       </div>
       <div id="email-status" aria-live="polite">${emailStatusHTML(b)}</div>
-      <p class="note">After class, leave a review and get 10% off your next one.</p>
+      <p class="note">After class, <button class="link-btn" type="button" data-action="open-reviews" data-class="${c.id}" data-write="1">leave a review</button> and get 10% off your next one.</p>
       <div class="row-actions">
+        <a class="btn btn-mint gcal" href="${esc(gcalURL(b))}" target="_blank" rel="noopener" data-track="add_to_calendar">${CAL_ICON}Add to Google Calendar</a>
         <a class="btn btn-ink" href="#classes">Book another class</a>
         <a class="btn" href="#profile">See my bookings</a>
       </div>
@@ -1241,6 +1495,158 @@ select.input {
     }
   }
 
+  /* ---------- reviews page ---------- */
+  const HINTS = ["Tap a star", "Not for me", "It was okay", "Good", "Really good", "Loved it"];
+  const AVATAR_COLOURS = ["lilac", "mint", "pink", "butter", "sky", "peach"];
+  const sortedReviews = (id) => {
+    const list = allReviews(id);
+    const newest = (a, b) => b.ts - a.ts;
+    if (ui.reviewSort === "highest") return list.sort((a, b) => b.rating - a.rating || newest(a, b));
+    if (ui.reviewSort === "lowest") return list.sort((a, b) => a.rating - b.rating || newest(a, b));
+    return list.sort(newest);
+  };
+  function reviewHTML(r) {
+    const initials = r.name.split(/\s+/).map((w) => w[0]).join("").slice(0, 2).toUpperCase();
+    const colour = AVATAR_COLOURS[[...r.name].reduce((t, ch) => t + ch.charCodeAt(0), 0) % AVATAR_COLOURS.length];
+    return `<li class="review ${r.sample ? "" : "is-mine"}">
+      <div class="rv-head"><span class="avatar c-${colour}" aria-hidden="true">${esc(initials)}</span>
+        <div class="rv-who"><p class="rv-name">${esc(r.name)}</p><p class="muted">${esc(monthLabel(r.date))}</p></div>
+        <span class="tag ${r.sample ? "" : "tag-mine"}">${r.sample ? "Sample review" : "Your review"}</span></div>
+      ${starsHTML(r.rating)}
+      ${r.text ? `<p>${esc(r.text)}</p>` : `<p class="muted">Rating only, no written review.</p>`}
+    </li>`;
+  }
+  function renderReviewList(c) {
+    $$("#rv-sort .chip").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.value === ui.reviewSort)));
+    $("#review-list").innerHTML = sortedReviews(c.id).map(reviewHTML).join("");
+  }
+  function renderReviews() {
+    const box = $("#reviews-body");
+    const c = getClass(ui.reviewClass);
+    if (!c) {
+      box.innerHTML = `<div class="page-head"><h1 class="t-title" id="reviews-title" tabindex="-1" data-focus>Reviews</h1>
+          <p class="lede">Pick a class to read what people say about it.</p></div>
+        <ul class="class-list">${CLASSES.map((x) => `<li class="panel rv-pick"><div class="thumb c-${x.color}">${photo(x, false)}</div>
+          <div><h2>${esc(x.title)}</h2>${ratingButtonHTML(x)}</div></li>`).join("")}</ul>`;
+      return;
+    }
+    track("reviews_page_view", { class_id: c.id });
+    const r = ratingOf(c.id);
+    const list = allReviews(c.id);
+    const dist = [5, 4, 3, 2, 1].map((n) => ({ n, k: list.filter((x) => x.rating === n).length }));
+    const email = store.user ? store.user.email : "";
+    box.innerHTML = `
+      <div class="page-head">
+        <a class="link-btn" href="#classes">Back to all classes</a>
+        <p class="sticker">Reviews</p>
+        <h1 class="t-title" id="reviews-title" tabindex="-1" data-focus>${esc(c.title)}</h1>
+        <p class="lede">${esc(c.hobby)} · Lvl ${c.lvl} · ${esc(c.level)} · ${esc(c.where)}</p>
+      </div>
+      <div class="rv-grid">
+        <div class="panel rv-summary">
+          <div class="thumb rv-photo c-${c.color}">${photo(c)}</div>
+          <p class="rv-avg"><span>${r.avg.toFixed(1)}</span> out of 5</p>
+          ${starsHTML(r.avg, "lg")}
+          <p>${countText(r)}</p>
+          <ul class="dist" aria-label="How the ratings split">${dist.map((d) => `<li><span><span aria-hidden="true">${d.n} ★</span><span class="sr-only">${d.n} ${d.n === 1 ? "star" : "stars"}</span></span>
+            <span class="bar" aria-hidden="true"><span style="width:${r.count ? (d.k / r.count) * 100 : 0}%"></span></span><span>${d.k}</span></li>`).join("")}</ul>
+          <button class="btn btn-ink btn-block" type="button" data-action="pick-class" data-class="${c.id}">Book a class</button>
+        </div>
+
+        <section class="rv-main" aria-labelledby="rv-list-title">
+          <p class="note">Reviews marked "Sample review" were written for this course demo, not by real learners. Reviews you post show up as "Your review".</p>
+          <div class="rv-tools">
+            <h2 class="t-sub" id="rv-list-title">What people say</h2>
+            <div class="chip-row" id="rv-sort" role="group" aria-label="Sort reviews">
+              <button class="chip" type="button" data-action="review-sort" data-value="newest">Newest</button>
+              <button class="chip" type="button" data-action="review-sort" data-value="highest">Highest</button>
+              <button class="chip" type="button" data-action="review-sort" data-value="lowest">Lowest</button>
+            </div>
+          </div>
+          <ul class="review-list" id="review-list"></ul>
+        </section>
+
+        <form class="panel bk-form" id="review-form" novalidate>
+          <h2>Write a review</h2>
+          <p class="muted">Booked this class? Tell the next learner how it went, and get 10% off your next class.</p>
+          <fieldset class="stars-input" aria-describedby="rv-rating-err">
+            <legend>Your rating</legend>
+            <div class="star-row" id="rv-stars" data-show="0">
+              ${[1, 2, 3, 4, 5].map((n) => `<input class="sr-only" type="radio" name="rv-rating" id="rv-r${n}" value="${n}"><label for="rv-r${n}" data-n="${n}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${STAR_PATH}"/></svg><span class="sr-only">${n} ${n === 1 ? "star" : "stars"}</span></label>`).join("")}
+            </div>
+            <p class="muted" id="rv-hint">${HINTS[0]}</p>
+            <p class="err" id="rv-rating-err" hidden></p>
+          </fieldset>
+          <div class="field">
+            <label for="rv-email">Email you booked with</label>
+            <input class="input" id="rv-email" type="email" autocomplete="email" value="${esc(email)}" aria-describedby="rv-email-err">
+            <p class="err" id="rv-email-err" hidden></p>
+          </div>
+          <div class="field">
+            <label for="rv-text">Your review <span class="muted">(optional)</span></label>
+            <textarea class="input" id="rv-text" maxlength="500" placeholder="What was it like? What should the next person know?"></textarea>
+            <p class="muted" id="rv-count">0 / 500</p>
+          </div>
+          <button class="btn btn-ink btn-block" type="submit">Post review</button>
+          <div id="rv-feedback" aria-live="polite"></div>
+        </form>
+      </div>`;
+    renderReviewList(c);
+    if (ui.reviewFocus) {
+      ui.reviewFocus = false;
+      setTimeout(() => { $("#review-form").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" }); $("#rv-r5").focus({ preventScroll: true }); }, 60);
+    }
+  }
+  function showStars(n) {
+    const row = $("#rv-stars"); if (!row) return;
+    row.dataset.show = String(n);
+    $("#rv-hint").textContent = HINTS[n] || HINTS[0];
+  }
+  const chosenRating = () => Number((document.querySelector('input[name="rv-rating"]:checked') || {}).value || 0);
+
+  function submitReview(e) {
+    e.preventDefault();
+    const c = getClass(ui.reviewClass);
+    if (!c) return;
+    ["rv-rating", "rv-email"].forEach((id) => { const er = $(`#${id}-err`); er.hidden = true; er.textContent = ""; });
+    $("#rv-email").removeAttribute("aria-invalid");
+    $("#rv-feedback").innerHTML = "";
+    const rating = chosenRating();
+    const email = normEmail($("#rv-email").value);
+    const text = $("#rv-text").value.trim();
+    let bad = null;
+    if (!rating) { $("#rv-rating-err").textContent = "Pick a rating from 1 to 5 stars."; $("#rv-rating-err").hidden = false; bad = bad || "rv-r5"; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { $("#rv-email").setAttribute("aria-invalid", "true"); $("#rv-email-err").textContent = "Add the email you booked with, like nora@email.com."; $("#rv-email-err").hidden = false; bad = bad || "rv-email"; }
+    if (bad) { $(`#${bad}`).focus(); return; }
+
+    // Unhappy path from the review story: only people who booked can review
+    const booking = store.bookings.find((b) => b.email === email && b.classId === c.id);
+    if (!booking) {
+      $("#rv-feedback").innerHTML = `<div class="note is-failed"><p><strong>You can only review classes you've booked.</strong> We can't find a booking for ${esc(c.title)} with ${esc(email)}. Used a different email? Try that one.</p>
+        <button class="btn" type="button" data-action="pick-class" data-class="${c.id}">Book this class</button></div>`;
+      track("review_not_allowed", { class_id: c.id });
+      return;
+    }
+    const name = `${booking.first}${booking.last ? ` ${booking.last[0].toUpperCase()}.` : ""}`;
+    const existing = store.reviews.find((x) => x.email === email && x.classId === c.id);
+    let msg;
+    if (existing) {
+      Object.assign(existing, { rating, text, date: monthKey(), ts: Date.now() });
+      msg = "Your review is updated.";
+    } else {
+      store.reviews.push({ id: `r${Date.now().toString(36)}`, classId: c.id, email, name, rating, text, date: monthKey(), ts: Date.now() });
+      store.credits[email] = (store.credits[email] || 0) + 1;
+      msg = `Thanks, ${booking.first}! Your review is up, and 10% off is now waiting on your next paid class.`;
+    }
+    save();
+    track("review_submitted", { class_id: c.id, rating, has_comment: Boolean(text) });
+    ui.reviewSort = "newest";
+    renderReviews();
+    $("#rv-feedback").innerHTML = `<p class="note is-sent">${esc(msg)}</p>`;
+    $("#review-list").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    announce(msg);
+  }
+
   /* ---------- profile ---------- */
   function renderProfile() {
     const box = $("#profile-body");
@@ -1254,8 +1660,12 @@ select.input {
       const hl = b.id === ui.highlight;
       return `<li class="booking-item ${hl ? "is-hl" : ""}" ${hl ? 'id="hl-booking"' : ""}>
         <div class="thumb c-${c.color}">${photo(c, false)}</div>
-        <div><h3>${esc(c.title)}</h3><p>${esc(fmtDate(nextDate(s.day, s.hour)))} · ${esc(fmtHour(s.hour))}</p><p class="muted">${b.price === 0 ? "Free first class" : `$${b.price}`} · ${esc(b.email)}</p></div>
-        <button class="link-btn" type="button" data-action="cancel-booking" data-id="${b.id}">Cancel booking</button>
+        <div><h3>${esc(c.title)}</h3><p>${esc(fmtDate(nextDate(s.day, s.hour)))} · ${fmtRange(c, s)}</p><p>${esc(c.where)}</p><p class="muted">${b.price === 0 ? "Free first class" : fmtMoney(b.price)} · ${esc(b.email)}</p></div>
+        <div class="bi-actions">
+          <a class="link-btn" href="${esc(gcalURL(b))}" target="_blank" rel="noopener" data-track="add_to_calendar">Add to calendar</a>
+          <button class="link-btn" type="button" data-action="open-reviews" data-class="${c.id}" data-write="1">Write a review</button>
+          <button class="link-btn" type="button" data-action="cancel-booking" data-id="${b.id}">Cancel booking</button>
+        </div>
         ${hl ? `<p class="hl-note">This is the booking you tried to make again.</p>` : ""}
       </li>`;
     }).join("");
@@ -1329,7 +1739,7 @@ select.input {
   };
 
   /* ---------- routing (plain #name hashes) ---------- */
-  const VIEWS = ["home", "classes", "booking", "confirmation", "profile"];
+  const VIEWS = ["home", "classes", "booking", "confirmation", "profile", "reviews"];
   let firstRoute = true;
   function go(name) { if (location.hash === `#${name}`) route(); else location.hash = name; }
   function route() {
@@ -1342,7 +1752,8 @@ select.input {
     if (view === "booking") enterBooking();
     if (view === "confirmation") renderConfirmation();
     if (view === "profile") renderProfile();
-    const navKey = h === "how-it-works" ? "how-it-works" : view;
+    if (view === "reviews") renderReviews();
+    const navKey = h === "how-it-works" ? "how-it-works" : view === "reviews" ? "classes" : view;
     $$("[data-nav]").forEach((a) => { if (a.dataset.nav === navKey) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
     if (h === "how-it-works") {
       setTimeout(() => { $("#how").scrollIntoView({ behavior: reduceMotion || firstRoute ? "auto" : "smooth" }); $("#how-title").focus({ preventScroll: true }); }, 30);
@@ -1373,11 +1784,13 @@ select.input {
       case "toggle-cart": e.stopPropagation(); if ($("#cart").hidden) openCart(); else closeCart(); break;
       case "close-cart": closeCart(); break;
       case "spin": spin(); break;
-      case "see-hobby": ui.hobby = el.dataset.hobby; ui.level = "any"; ui.day = "any"; ui.q = ""; go("classes"); break;
+      case "see-hobby": ui.hobby = el.dataset.hobby; ui.level = "any"; ui.day = "any"; ui.time = "any"; ui.q = ""; go("classes"); break;
       case "filter-hobby": ui.hobby = el.dataset.value; renderClasses(); break;
+      case "filter-time": ui.time = el.dataset.value; renderClasses(); break;
+      case "set-view": ui.view = el.dataset.value; if (ui.view === "calendar") track("calendar_view"); renderClasses(); break;
       case "filter-level": ui.level = el.dataset.value === "any" ? "any" : Number(el.dataset.value); renderClasses(); break;
       case "filter-day": ui.day = el.dataset.value === "any" ? "any" : Number(el.dataset.value); renderClasses(); break;
-      case "clear-filter": ui.hobby = "all"; ui.level = "any"; ui.day = "any"; ui.q = ""; renderClasses(); $("#classes-title").focus(); announce("Filter cleared. Showing all classes."); break;
+      case "clear-filter": ui.hobby = "all"; ui.level = "any"; ui.day = "any"; ui.time = "any"; ui.q = ""; renderClasses(); $("#classes-title").focus(); announce("Filter cleared. Showing all classes."); break;
       case "pick-class":
         ui.pendingClass = el.dataset.class; ui.pendingSlot = null;
         track("book_class_click", { where: "classes_card", class_id: ui.pendingClass });
@@ -1387,6 +1800,8 @@ select.input {
         track("book_class_click", { where: "time_button", class_id: ui.pendingClass, slot_id: ui.pendingSlot });
         renderCart(); go("booking"); break;
       case "manage-booking": ui.highlight = el.dataset.id; go("profile"); break;
+      case "open-reviews": ui.reviewClass = el.dataset.class; ui.reviewSort = "newest"; ui.reviewFocus = el.dataset.write === "1"; go("reviews"); break;
+      case "review-sort": { ui.reviewSort = el.dataset.value; const c = getClass(ui.reviewClass); if (c) renderReviewList(c); break; }
       case "resend-email": { const b = store.bookings.find((x) => x.id === ui.lastBookingId); if (b) startEmail(b); break; }
       case "other-time": {
         ui.pendingSlot = el.dataset.slot; $("#f-slot").value = ui.pendingSlot;
@@ -1437,7 +1852,15 @@ select.input {
   $("#f-class").addEventListener("change", (e) => { ui.pendingClass = e.target.value || null; ui.pendingSlot = null; fillSlots(getClass(ui.pendingClass)); renderSummary(); renderCart(); });
   $("#f-slot").addEventListener("change", (e) => { ui.pendingSlot = e.target.value || null; renderSummary(); renderCart(); });
   $("#f-email").addEventListener("input", renderSummary);
-  document.addEventListener("submit", (e) => { if (e.target.id === "login-form") submitLogin(e); });
+  document.addEventListener("submit", (e) => {
+    if (e.target.id === "login-form") submitLogin(e);
+    if (e.target.id === "review-form") submitReview(e);
+  });
+  // star picker on the review form: hover previews, a choice sticks
+  document.addEventListener("change", (e) => { if (e.target.name === "rv-rating") showStars(chosenRating()); });
+  document.addEventListener("mouseover", (e) => { const l = e.target.closest("#rv-stars label"); if (l) showStars(Number(l.dataset.n)); });
+  document.addEventListener("mouseout", (e) => { if (e.target.closest("#rv-stars") && !e.relatedTarget?.closest?.("#rv-stars")) showStars(chosenRating()); });
+  document.addEventListener("input", (e) => { if (e.target.id === "rv-text") $("#rv-count").textContent = `${e.target.value.length} / 500`; });
 
   // A photo that can't load becomes a colour block with the hobby name, keeping its alt text for screen readers.
   document.addEventListener("error", (e) => {
@@ -1453,7 +1876,8 @@ select.input {
   /* ---------- boot ---------- */
   function start(data) {
     if (data && data.store && Array.isArray(data.store.bookings)) store = data.store;
-    else { const l = loadLocal(); if (l) store = { bookings: l.bookings, user: l.user || null, taken: l.taken || {} }; }
+    else { const l = loadLocal(); if (l) store = { bookings: l.bookings, user: l.user || null, taken: l.taken || {}, reviews: l.reviews || [], credits: l.credits || {} }; }
+    store.reviews = store.reviews || []; store.credits = store.credits || {};
     if (data && data.ui) Object.assign(ui, data.ui);
     buildStatic();
     renderCart();
