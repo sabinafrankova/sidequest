@@ -289,7 +289,7 @@ a:hover { color: var(--ink); }
 
 /* ---------- footer ---------- */
 .footer { margin-top: var(--s8); padding-block: var(--s6) var(--s4); background: var(--ink); color: var(--paper); }
-.foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: var(--s4); }
+.foot-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: var(--s4); }
 .foot-grid h2 { font-size: 24px; color: var(--mint); margin-bottom: 12px; }
 .foot-grid ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
 .footer a { color: var(--lilac); }
@@ -322,7 +322,7 @@ a:hover { color: var(--ink); }
 .thumb .ph-img { transition: transform .4s ease; }
 .class-card:hover .thumb .ph-img { transform: scale(1.06); }
 .cc-main { display: grid; gap: 12px; min-width: 0; }
-.cc-main h2 { font-size: var(--fs-sub); }
+.cc-main h3 { font-size: var(--fs-sub); }
 .cc-teacher { color: var(--ink-soft); font-weight: 600; }
 .meta-row, .slots { display: flex; flex-wrap: wrap; gap: var(--s1); }
 .cc-loot strong { font-weight: 800; }
@@ -425,6 +425,45 @@ select.input {
 .booking-item.is-hl { background: var(--mint); box-shadow: 6px 6px 0 var(--violet); }
 .hl-note { grid-column: 1 / -1; font-weight: 800; }
 
+/* ---------- sections, extras, reminders, teach, policies ---------- */
+.cat-group { display: grid; gap: var(--s2); margin-bottom: var(--s6); }
+.cat-title { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px; font-size: var(--fs-sub); }
+.cat-title span { font: 600 18px/1 var(--font-body); color: var(--ink-soft); }
+.slot-btn.is-full { background: var(--paper); border-style: dashed; }
+.cal-slot.is-full { background: var(--paper); border-style: dashed; box-shadow: none; }
+.tag-new { background: var(--butter); }
+.extras { display: grid; gap: var(--s2); min-width: 0; margin: 0; padding: var(--s3) 0 0; border: 0; border-top: 2px dashed var(--ink); }
+.extras legend { float: left; width: 100%; padding: 0; margin-bottom: 4px; font-weight: 800; }
+.check { display: flex; gap: 12px; align-items: flex-start; cursor: pointer; }
+.check input { flex: none; width: 26px; height: 26px; margin: 2px 0 0; accent-color: var(--violet); cursor: pointer; }
+.modal { position: fixed; inset: 0; z-index: 70; display: grid; place-items: center; padding: var(--gutter); background: rgba(26, 20, 48, .45); }
+.modal-card { width: min(480px, 100%); display: grid; gap: var(--s2); padding: var(--s4); border: 2px solid var(--ink); border-radius: 28px; background: var(--paper); box-shadow: 8px 8px 0 var(--ink); animation: view-in .2s ease; }
+.modal-card h2 { font-size: var(--fs-sub); }
+.toast {
+  position: fixed; z-index: 80; left: 50%; bottom: 24px; transform: translateX(-50%); width: min(600px, calc(100% - 32px));
+  display: flex; gap: 12px; align-items: flex-start; padding: 16px 12px 16px 20px;
+  border: 2px solid var(--ink); border-radius: 20px; background: var(--mint); box-shadow: 6px 6px 0 var(--ink); font-weight: 600;
+}
+.toast p { flex: 1; padding-top: 8px; }
+.cta-teach { margin-bottom: var(--s4); background: var(--lilac); border-style: solid; }
+.teach-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: var(--s4); align-items: start; }
+.teach-side { display: grid; gap: var(--s3); }
+.t-times { display: grid; gap: 12px; }
+.t-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) auto; gap: 12px; align-items: end; }
+.photo-preview { width: 200px; aspect-ratio: 16 / 10; border: 2px solid var(--ink); border-radius: 16px; overflow: hidden; }
+input[type="file"].input { padding: 12px; }
+.perk-list { margin: 0; padding-left: 1.2em; display: grid; gap: 10px; }
+.my-classes { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.my-classes li { display: grid; gap: 4px; padding: 14px 16px; border: 2px solid var(--ink); border-radius: 18px; background: var(--white); }
+.date-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.email-notes { display: grid; gap: 12px; }
+.legal { max-width: 820px; display: grid; gap: var(--s2); padding-bottom: var(--s6); }
+.legal .page-head { padding-bottom: 0; }
+.legal h2 { margin-top: var(--s3); font-size: var(--fs-sub); }
+.legal p, .legal li { max-width: 68ch; }
+.legal ul { margin: 0; padding-left: 1.2em; display: grid; gap: 8px; }
+.legal .btn { justify-self: start; }
+
 /* ---------- calendar ---------- */
 .results-tools { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s2); }
 .view-toggle { display: flex; gap: 4px; padding: 4px; border: 2px solid var(--ink); border-radius: 999px; background: var(--white); }
@@ -517,6 +556,7 @@ select.input {
   .bk-grid { grid-template-columns: 1fr; }
   .summary { position: static; }
   .profile-grid { grid-template-columns: 1fr; }
+  .teach-grid { grid-template-columns: 1fr; }
   .rv-grid { grid-template-columns: 1fr; grid-template-areas: "sum" "list" "form"; grid-template-rows: auto; }
   .cal { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .foot-grid { grid-template-columns: 1fr 1fr; }
@@ -530,6 +570,7 @@ select.input {
   .thumb { border-radius: 18px; }
   .foot-grid { grid-template-columns: 1fr; }
   .cal { grid-template-columns: 1fr; }
+  .t-row { grid-template-columns: 1fr 1fr; }
   .cal-day { min-height: 0; }
   .booking-item { grid-template-columns: 56px minmax(0, 1fr); }
   .booking-item .bi-actions { grid-column: 1 / -1; }
@@ -566,6 +607,7 @@ select.input {
       <a href="#home" data-nav="home">Home</a>
       <a href="#classes" data-nav="classes">Classes</a>
       <a href="#how-it-works" data-nav="how-it-works">How it works</a>
+      <a href="#teach" data-nav="teach">Teach</a>
       <a href="#profile" data-nav="profile">My bookings</a>
     </nav>
     <div class="topbar-icons">
@@ -589,6 +631,7 @@ select.input {
       <a href="#home" data-nav="home">Home</a>
       <a href="#classes" data-nav="classes">Classes</a>
       <a href="#how-it-works" data-nav="how-it-works">How it works</a>
+      <a href="#teach" data-nav="teach">Teach on Sidequest</a>
       <a href="#profile" data-nav="profile">My bookings</a>
     </nav>
     <p class="sticker">Montréal · first class free</p>
@@ -603,6 +646,32 @@ select.input {
     </button>
   </div>
   <div id="cart-body"></div>
+</div>
+
+<div class="modal" id="remind" hidden data-action="close-remind-backdrop">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="remind-title">
+    <h2 id="remind-title">Get a reminder</h2>
+    <p id="remind-text"></p>
+    <form id="remind-form" class="bk-form" novalidate>
+      <div class="field">
+        <label for="rm-email">Your email</label>
+        <input class="input" id="rm-email" type="email" autocomplete="email" aria-describedby="rm-email-err">
+        <p class="err" id="rm-email-err" hidden></p>
+      </div>
+      <div class="row-actions">
+        <button class="btn btn-ink" type="submit">Remind me</button>
+        <button class="btn" type="button" data-action="close-remind">Cancel</button>
+      </div>
+    </form>
+    <div id="remind-done" class="bk-form" hidden></div>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden>
+  <p id="toast-text"></p>
+  <button class="icon-btn" type="button" aria-label="Close message" data-action="close-toast">
+    <svg viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" aria-hidden="true"><path d="M6 6l14 14M20 6L6 20"/></svg>
+  </button>
 </div>
 
 <main id="main" tabindex="-1">
@@ -659,6 +728,13 @@ select.input {
     </section>
 
     <div class="wrap">
+      <div class="cta cta-teach">
+        <h2 class="t-sub">Know a hobby well? Teach it here.</h2>
+        <a class="btn btn-lilac" href="#teach">Teach on Sidequest</a>
+      </div>
+    </div>
+
+    <div class="wrap">
       <div class="cta">
         <h2 class="t-sub">Pick one hobby this week. The first class is free.</h2>
         <a class="btn btn-ink" href="#classes" data-track="book_class_click" data-where="home_bottom">Book a class</a>
@@ -676,6 +752,10 @@ select.input {
 
       <div class="filters">
         <div class="filter-box">
+          <fieldset class="filter-group">
+            <legend>Filter by type</legend>
+            <div class="chip-row" id="type-chips"></div>
+          </fieldset>
           <fieldset class="filter-group">
             <legend>Filter by hobby</legend>
             <div class="chip-row" id="hobby-chips"></div>
@@ -762,6 +842,33 @@ select.input {
             <select class="input" id="f-slot" aria-describedby="f-slot-err"></select>
             <p class="err" id="f-slot-err" hidden></p>
           </div>
+          <fieldset class="extras">
+            <legend>Extras</legend>
+            <label class="check" for="f-friend">
+              <input type="checkbox" id="f-friend">
+              <span><strong>Bring a friend</strong><br><span class="muted">Book a second spot. If it's their first class, it's free too.</span></span>
+            </label>
+            <div class="pair" id="friend-fields" hidden>
+              <div class="field">
+                <label for="f-friend-first">Friend's first name</label>
+                <input class="input" id="f-friend-first" autocomplete="off" aria-describedby="f-friend-first-err">
+                <p class="err" id="f-friend-first-err" hidden></p>
+              </div>
+              <div class="field">
+                <label for="f-friend-email">Friend's email</label>
+                <input class="input" id="f-friend-email" type="email" autocomplete="off" inputmode="email" aria-describedby="f-friend-email-err">
+                <p class="err" id="f-friend-email-err" hidden></p>
+              </div>
+            </div>
+            <label class="check" for="f-weekly">
+              <input type="checkbox" id="f-weekly">
+              <span><strong>Same time every week</strong><br><span class="muted">Keep this spot every week and build a routine. Pay per class, skip or cancel any week.</span></span>
+            </label>
+            <div class="field" id="weekly-field" hidden>
+              <label for="f-weeks">For how long?</label>
+              <select class="input" id="f-weeks"><option value="4">4 weeks</option><option value="6">6 weeks</option><option value="8">8 weeks</option></select>
+            </div>
+          </fieldset>
           <div class="field">
             <label for="f-notes">Anything your teacher should know? <span class="muted">(optional)</span></label>
             <textarea class="input" id="f-notes" placeholder="For example: total beginner, left-handed, bringing a friend"></textarea>
@@ -781,6 +888,185 @@ select.input {
   <!-- ================= REVIEWS ================= -->
   <section class="view" data-view="reviews" aria-labelledby="reviews-title" hidden>
     <div class="wrap" id="reviews-body"></div>
+  </section>
+
+  <!-- ================= TEACH ================= -->
+  <section class="view" data-view="teach" aria-labelledby="teach-title" hidden>
+    <div class="wrap">
+      <div class="page-head">
+        <p class="sticker">For teachers</p>
+        <h1 class="t-title" id="teach-title" tabindex="-1" data-focus>Teach on Sidequest</h1>
+        <p class="lede">Love a hobby? Share it. Add a short profile and your class, and learners can book it right away.</p>
+      </div>
+      <div class="teach-grid">
+        <form class="panel bk-form" id="teach-form" novalidate>
+          <h2>About you</h2>
+          <div class="pair">
+            <div class="field"><label for="t-name">Your name</label><input class="input" id="t-name" autocomplete="name" aria-describedby="t-name-err"><p class="err" id="t-name-err" hidden></p></div>
+            <div class="field"><label for="t-email">Email</label><input class="input" id="t-email" type="email" autocomplete="email" aria-describedby="t-email-err"><p class="err" id="t-email-err" hidden></p></div>
+          </div>
+          <div class="field">
+            <label for="t-bio">A line about you <span class="muted">(optional)</span></label>
+            <textarea class="input" id="t-bio" maxlength="200" placeholder="For example: Knitting since I was 12, now I make all my winter hats."></textarea>
+          </div>
+
+          <h2>Your class</h2>
+          <div class="pair">
+            <div class="field">
+              <label for="t-hobby">Hobby</label>
+              <input class="input" id="t-hobby" list="t-hobby-list" autocomplete="off" aria-describedby="t-hobby-hint t-hobby-err">
+              <datalist id="t-hobby-list"></datalist>
+              <p class="hint" id="t-hobby-hint"></p>
+              <p class="err" id="t-hobby-err" hidden></p>
+            </div>
+            <div class="field"><label for="t-cat">Type</label><select class="input" id="t-cat"></select></div>
+          </div>
+          <div class="pair">
+            <div class="field"><label for="t-title">Class name <span class="muted">(optional)</span></label><input class="input" id="t-title" placeholder="Knitting with Lea"></div>
+            <div class="field"><label for="t-level">Level</label>
+              <select class="input" id="t-level"><option>Total beginner</option><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></div>
+          </div>
+          <div class="field">
+            <label for="t-blurb">What learners will do</label>
+            <textarea class="input" id="t-blurb" maxlength="200" aria-describedby="t-blurb-err" placeholder="For example: Learn to cast on and knit your first headband."></textarea>
+            <p class="err" id="t-blurb-err" hidden></p>
+          </div>
+          <div class="pair">
+            <div class="field"><label for="t-where">Where</label><input class="input" id="t-where" placeholder="Café back room · Mile End" aria-describedby="t-where-err"><p class="err" id="t-where-err" hidden></p></div>
+            <div class="field"><label for="t-loot">What's included or to bring</label><input class="input" id="t-loot" placeholder="Needles and yarn included" aria-describedby="t-loot-err"><p class="err" id="t-loot-err" hidden></p></div>
+          </div>
+          <fieldset class="filter-group">
+            <legend>When</legend>
+            <div class="t-times" id="t-times"></div>
+            <button class="link-btn" type="button" id="t-add-time" data-action="add-time">Add another time</button>
+          </fieldset>
+          <div class="pair">
+            <div class="field"><label for="t-length">Length</label>
+              <select class="input" id="t-length"><option value="60">1 hour</option><option value="90">1.5 hours</option><option value="120">2 hours</option></select></div>
+            <div class="field">
+              <label for="t-price">Price per class ($)</label>
+              <input class="input" id="t-price" type="number" min="0" max="200" step="1" inputmode="decimal" aria-describedby="t-price-hint t-price-err">
+              <p class="hint" id="t-price-hint"></p>
+              <p class="err" id="t-price-err" hidden></p>
+            </div>
+          </div>
+          <div class="field">
+            <label for="t-photo">Class photo <span class="muted">(optional)</span></label>
+            <input class="input" id="t-photo" type="file" accept="image/*" aria-describedby="t-photo-err">
+            <div class="photo-preview" id="t-photo-preview" hidden></div>
+            <p class="err" id="t-photo-err" hidden></p>
+          </div>
+          <button class="btn btn-ink btn-block" type="submit">Add my class</button>
+          <p class="muted">Demo: your class goes live in this browser right away. On the real Sidequest, the team checks every new class within 48 hours.</p>
+          <div id="teach-feedback" aria-live="polite"></div>
+        </form>
+
+        <aside class="teach-side">
+          <div class="panel bk-form">
+            <h2>Why teach here</h2>
+            <ul class="perk-list">
+              <li><strong>We bring the learners.</strong> No ads, no profile to build from scratch.</li>
+              <li><strong>Price with confidence.</strong> We show what similar classes cost.</li>
+              <li><strong>Your privacy stays yours.</strong> Learners see your first name, your line about you and your class, never your email.</li>
+              <li><strong>Fits around your studies.</strong> You pick the times, and you can add or remove classes anytime.</li>
+            </ul>
+          </div>
+          <div class="panel bk-form" id="my-classes"></div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= POLICIES ================= -->
+  <section class="view" data-view="terms" aria-labelledby="terms-title" hidden>
+    <div class="wrap legal">
+      <div class="page-head">
+        <p class="sticker">Last updated 12 November 2026</p>
+        <h1 class="t-title" id="terms-title" tabindex="-1" data-focus>Terms and conditions</h1>
+      </div>
+      <p class="note">Draft for a student project (INSY 440, McGill). Have it checked by a lawyer before Sidequest takes real bookings or payments.</p>
+      <h2>Who we are</h2>
+      <p>Sidequest connects people who want to try a hobby with local students and hobbyists who teach it in Montréal. It's run by the five founders of Group 6, who also teach the first classes.</p>
+      <h2>Booking a class</h2>
+      <ul>
+        <li>A booking holds your spot at one class time.</li>
+        <li>Your first class is free, once per email address. After that, you pay per class. There are no semester fees.</li>
+        <li><strong>Same time every week</strong> keeps the same spot for the weeks you choose. You still pay per class and can skip or cancel any week.</li>
+        <li><strong>Bring a friend</strong> books a second spot under your friend's own email. If it's their first class, it's free for them too.</li>
+        <li>Please arrive on time and bring what the class lists under "Loot to bring".</li>
+      </ul>
+      <h2>Cancelling</h2>
+      <p>You can cancel for free up to 24 hours before class. The full rules, including refunds, are in our <a href="#refunds">Refund policy</a>.</p>
+      <h2>Teachers</h2>
+      <p>Teachers are independent students and hobbyists. They decide what the class covers, its level, times and price. Sidequest checks every new class before it goes live and can remove classes that break these terms.</p>
+      <h2>Taking part safely</h2>
+      <p>Some classes are physical. Tell your teacher about any injury or health issue that matters for the class, and follow their instructions. Nothing in these terms limits your rights under Quebec consumer protection law.</p>
+      <h2>Reviews</h2>
+      <p>Only people who booked a class can review it. Keep reviews honest and respectful. We can remove reviews that are abusive, fake, or share someone's personal details.</p>
+      <h2>Your account</h2>
+      <p>In this demo, logging in needs no password and everything is saved in your own browser. See our <a href="#privacy">Privacy policy</a>.</p>
+      <h2>Changes and contact</h2>
+      <p>We may update these terms and will change the date at the top when we do. These terms follow the laws of Quebec and Canada. Questions? Email the team at [team email].</p>
+    </div>
+  </section>
+
+  <section class="view" data-view="privacy" aria-labelledby="privacy-title" hidden>
+    <div class="wrap legal">
+      <div class="page-head">
+        <p class="sticker">Last updated 12 November 2026</p>
+        <h1 class="t-title" id="privacy-title" tabindex="-1" data-focus>Privacy policy</h1>
+      </div>
+      <p class="note">Draft for a student project (INSY 440, McGill). Have it checked before Sidequest collects real personal information.</p>
+      <h2>What we collect</h2>
+      <ul>
+        <li>Your name, email, and optionally your phone number and a note for your teacher, when you book.</li>
+        <li>Your friend's first name and email, when you bring a friend.</li>
+        <li>Your rating and review, when you write one.</li>
+        <li>Your email, when you ask for a reminder.</li>
+        <li>Teachers' name, email, a line about them, class details and an optional photo.</li>
+      </ul>
+      <h2>Why we use it</h2>
+      <p>To hold your spot, send your confirmation and reminders, show reviews, and list classes. We also count how people use the site (for example how many bookings get finished) to make it better.</p>
+      <h2>Where it goes</h2>
+      <ul>
+        <li><strong>Your browser.</strong> In this demo, everything is saved only on your own device, not on our servers.</li>
+        <li><strong>EmailJS.</strong> When emails are switched on, the email address and booking details needed for the message pass through EmailJS, the service that sends them.</li>
+        <li><strong>Google.</strong> The site's fonts load from Google Fonts, which can see your IP address. "Add to Google Calendar" opens Google Calendar only when you tap it. Once we connect Google Analytics, it will count page visits and bookings.</li>
+      </ul>
+      <p>We never sell your information, and learners never see a teacher's email.</p>
+      <h2>Your rights</h2>
+      <p>Quebec's privacy law (Law 25) and Canadian law give you the right to see, correct and delete the personal information we hold about you. In this demo you can delete everything saved on this device right now.</p>
+      <button class="btn" type="button" data-action="delete-data">Delete my data on this device</button>
+      <p class="note is-sent" id="delete-done" hidden>Done. Your bookings, reviews, reminders, log-in and any classes you added are deleted from this device.</p>
+      <h2>Contact</h2>
+      <p>The person in charge of privacy at Sidequest is [name], reachable at [team email].</p>
+    </div>
+  </section>
+
+  <section class="view" data-view="refunds" aria-labelledby="refunds-title" hidden>
+    <div class="wrap legal">
+      <div class="page-head">
+        <p class="sticker">Last updated 12 November 2026</p>
+        <h1 class="t-title" id="refunds-title" tabindex="-1" data-focus>Refund policy</h1>
+      </div>
+      <p class="note">Draft for a student project. This demo takes no payments, so nothing is charged or refunded yet.</p>
+      <h2>First class</h2>
+      <p>Your first class is free, so there's nothing to refund. Cancel it anytime so someone else can take the spot.</p>
+      <h2>Paid classes</h2>
+      <ul>
+        <li><strong>Cancel 24 hours or more before class:</strong> full refund.</li>
+        <li><strong>Cancel less than 24 hours before, or don't show up:</strong> no refund, because the teacher has already saved your spot.</li>
+        <li><strong>The teacher cancels or the class can't happen:</strong> full refund, or move to another time if you prefer.</li>
+      </ul>
+      <h2>Same time every week</h2>
+      <p>Each week counts as its own class. Cancel any week 24 hours or more before it for a full refund of that week. Cancelling one week doesn't cancel the others.</p>
+      <h2>Bring a friend</h2>
+      <p>Your friend's spot follows the same rules. Cancelling your booking also cancels your friend's spot.</p>
+      <h2>Review discount</h2>
+      <p>Each first review of a class gives 10% off your next paid class. It has no cash value and can't be refunded.</p>
+      <h2>How to cancel</h2>
+      <p>Go to <a href="#profile">My bookings</a> and tap "Cancel booking". Refunds go back to the way you paid, usually within 5 to 10 business days.</p>
+    </div>
   </section>
 
   <!-- ================= PROFILE ================= -->
@@ -803,6 +1089,7 @@ select.input {
         <ul>
           <li><a href="#classes">Classes</a></li>
           <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="#teach">Teach on Sidequest</a></li>
           <li><a href="#profile">My bookings</a></li>
         </ul>
       </div>
@@ -812,6 +1099,14 @@ select.input {
           <li>Free cancellation up to 24 hours before class</li>
           <li>Every class lists its level and what to bring</li>
           <li>Classes in English</li>
+        </ul>
+      </div>
+      <div>
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="#terms">Terms and conditions</a></li>
+          <li><a href="#privacy">Privacy policy</a></li>
+          <li><a href="#refunds">Refund policy</a></li>
         </ul>
       </div>
     </div>
@@ -875,7 +1170,7 @@ select.input {
       where: "Music room · Milton-Parc",
       photo: "guitar-advanced.jpg", alt: "Close-up of fingers picking the strings of a guitar",
       slots: [slot("fingerstyle-sun16", 0, 16, 3)] },
-    { id: "tennis", hobby: "Tennis", title: "Tennis with Sabina", teacher: "Sabina", founder: true, lvl: 1, level: "Beginner", color: "mint", price: 10,
+    { id: "tennis", hobby: "Tennis", title: "Tennis with Tomáš", teacher: "Tomáš", lvl: 1, level: "Beginner", color: "mint", price: 10,
       blurb: "Grip, forehand and a first rally. Small group, lots of balls.",
       loot: "Racket and balls provided. Bring sneakers.", lootShort: "Racket provided, bring sneakers",
       where: "Indoor courts · Rosemont",
@@ -927,7 +1222,7 @@ select.input {
       where: "Movement studio · Griffintown",
       photo: "pilates.jpg", alt: "A small group doing Pilates on mats",
       slots: [slot("pilates-mon8", 1, 8, 5), slot("pilates-thu12", 4, 12, 5)] },
-    { id: "skating", hobby: "Ice skating", title: "Ice skating with Tomáš", teacher: "Tomáš", lvl: 1, level: "Total beginner", color: "sky", price: 8,
+    { id: "skating", hobby: "Ice skating", title: "Ice skating with Sabina", teacher: "Sabina", founder: true, lvl: 1, level: "Total beginner", color: "sky", price: 8,
       blurb: "Balance, gliding and stopping without grabbing the boards. Montréal winter, sorted.",
       loot: "Bring skates, or rent a pair at the rink.", lootShort: "Skates, or rent at the rink",
       where: "Indoor arena · Plateau-Mont-Royal",
@@ -975,7 +1270,7 @@ select.input {
              ["Victor L.", 4, "2026-09", "Clear and relaxed. The tote takes the full session, so don't plan anything right after."]],
     pilates: [["Nadia R.", 5, "2026-10", "Lots of corrections, which is what I needed. My back thanks me."],
               ["Paul M.", 4, "2026-10", ""]],
-    skating: [["Emily Z.", 5, "2026-10", "I can finally stop without grabbing the boards. Tomáš is very encouraging."],
+    skating: [["Emily Z.", 5, "2026-10", "I can finally stop without grabbing the boards. Sabina is very encouraging."],
               ["Karim E.", 4, "2026-09", "Fun class. Renting skates at the arena was easy."]],
     terrarium: [["Ana K.", 5, "2026-10", "Such a cute workshop. Mine is still alive three weeks later!"],
                 ["Felix N.", 4, "2026-09", "Relaxing, and everything was included. A bit pricey, but you keep the terrarium."]],
@@ -986,11 +1281,22 @@ select.input {
      Story 2.3 unhappy path: if sending fails, the confirmation page still shows every detail. */
   const EMAIL = {
     serviceId: "YOUR_SERVICE_ID",
-    templateId: "YOUR_TEMPLATE_ID",
+    templateId: "YOUR_TEMPLATE_ID",              // booking confirmation template
+    noticeTemplateId: "YOUR_NOTICE_TEMPLATE_ID", // optional: reminders and teacher notices
     publicKey: "YOUR_PUBLIC_KEY",
   };
-  const emailOn = () => Object.values(EMAIL).every((v) => v && !v.startsWith("YOUR_"));
-  const HOBBIES = [...new Set(CLASSES.map((c) => c.hobby))];
+  const isSet = (v) => Boolean(v) && !v.startsWith("YOUR_");
+  const emailOn = () => isSet(EMAIL.serviceId) && isSet(EMAIL.templateId) && isSet(EMAIL.publicKey);
+  const noticeOn = () => isSet(EMAIL.serviceId) && isSet(EMAIL.noticeTemplateId) && isSet(EMAIL.publicKey);
+
+  /* hobby types: the sections on the Classes page */
+  const CATEGORIES = ["Creative", "Sports", "Music", "Movement", "Other"];
+  const CATEGORY_OF = { Dance: "Movement", Pilates: "Movement", Guitar: "Music", Tennis: "Sports", Badminton: "Sports", "Ice skating": "Sports",
+    Pottery: "Creative", Drawing: "Creative", Sewing: "Creative", Photography: "Creative", Terrariums: "Creative" };
+  const CAT_COLOUR = { Creative: "peach", Sports: "mint", Music: "butter", Movement: "pink", Other: "lilac" };
+  const catOf = (c) => c.cat || CATEGORY_OF[c.hobby] || "Other";
+  let HOBBIES = [];
+  const refreshHobbies = () => { HOBBIES = [...new Set(CLASSES.map((c) => c.hobby))]; };
   const getClass = (id) => CLASSES.find((c) => c.id === id) || null;
   const getSlot = (c, id) => (c ? c.slots.find((s) => s.id === id) || null : null);
   const findSlot = (slotId) => { for (const c of CLASSES) { const s = getSlot(c, slotId); if (s) return { c, s }; } return null; };
@@ -1000,16 +1306,23 @@ select.input {
      GitHub Pages address, e.g. "https://YOUR-USERNAME.github.io/sidequest/images/".
      A missing photo turns into a colour block with the hobby name (see the error listener at the bottom). */
   const PHOTO_BASE = "images/";
-  const photo = (c, informative = true) =>
-    `<img class="ph-img" src="${PHOTO_BASE}${c.photo}" alt="${informative ? esc(c.alt) : ""}" data-ph="${esc(c.hobby.toLowerCase())}" loading="lazy" decoding="async">`;
+  const photo = (c, informative = true) => {
+    const src = c.photoData || (c.photo ? `${PHOTO_BASE}${c.photo}` : "");
+    if (!src) return `<span class="ph" ${informative ? `role="img" aria-label="${esc(c.hobby)} class"` : 'aria-hidden="true"'}>${esc(c.hobby.toLowerCase())}</span>`;
+    return `<img class="ph-img" src="${src}" alt="${informative ? esc(c.alt || `${c.hobby} class photo`) : ""}" data-ph="${esc(c.hobby.toLowerCase())}" loading="lazy" decoding="async">`;
+  };
   const CHECK = `<svg viewBox="0 0 24 24" fill="none" stroke="#1A1430" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>`;
 
   /* ---------- state ---------- */
   const KEY = "sidequest-demo-v1";
-  let store = { bookings: [], user: null, taken: {}, reviews: [], credits: {} };
-  const ui = { view: "list", time: "any", reviewClass: null, reviewSort: "newest", reviewFocus: false, hobby: "all", level: "any", day: "any", q: "", pendingClass: null, pendingSlot: null, lastBookingId: null, highlight: null, roll: "pottery" };
+  const freshStore = () => ({ bookings: [], user: null, taken: {}, reviews: [], credits: {}, alerts: [], customClasses: [] });
+  let store = freshStore();
+  const ui = { type: "all", remindDraft: null, view: "list", time: "any", reviewClass: null, reviewSort: "newest", reviewFocus: false, hobby: "all", level: "any", day: "any", q: "", pendingClass: null, pendingSlot: null, lastBookingId: null, highlight: null, roll: "pottery" };
   const loadLocal = () => { try { const d = JSON.parse(localStorage.getItem(KEY) || "null"); if (d && Array.isArray(d.bookings)) return d; } catch (e) { /* storage blocked */ } return null; };
-  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(store)); } catch (e) { /* storage blocked: keep in memory */ } };
+  let storageOK = true;
+  try { localStorage.setItem("sq-test", "1"); localStorage.removeItem("sq-test"); } catch (e) { storageOK = false; }
+  // returns false only when storage works but is full (for example a big teacher photo)
+  const save = () => { if (!storageOK) return true; try { localStorage.setItem(KEY, JSON.stringify(store)); return true; } catch (e) { return false; } };
   const spotsLeft = (s) => Math.max(0, s.spots - (store.taken[s.id] || 0));
   const normEmail = (e) => String(e || "").trim().toLowerCase();
   const isFirstFor = (email) => !email || !store.bookings.some((b) => b.email === email);
@@ -1037,8 +1350,9 @@ select.input {
     const count = list.length;
     return { count, avg: count ? list.reduce((t, r) => t + r.rating, 0) / count : 0, samples: list.filter((r) => r.sample).length };
   };
-  const countText = (r) => (r.samples === r.count
-    ? `${r.count} sample ${r.count === 1 ? "review" : "reviews"}`
+  const countText = (r) => (r.count === 0 ? "No reviews yet"
+    : r.samples === r.count ? `${r.count} sample ${r.count === 1 ? "review" : "reviews"}`
+    : r.samples === 0 ? `${r.count} ${r.count === 1 ? "review" : "reviews"}`
     : `${r.count} reviews, ${r.samples} of them samples`);
   const STAR_PATH = "M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z";
   const starRow = () => Array.from({ length: 5 }, () => `<svg viewBox="0 0 24 24"><path d="${STAR_PATH}"/></svg>`).join("");
@@ -1046,6 +1360,7 @@ select.input {
       <span class="stars-base" aria-hidden="true">${starRow()}</span><span class="stars-fill" aria-hidden="true" style="width:${(v / 5) * 100}%">${starRow()}</span></span>`;
   const ratingButtonHTML = (c) => {
     const r = ratingOf(c.id);
+    if (!r.count) return `<button class="rating-btn" type="button" data-action="open-reviews" data-class="${c.id}"><span>No reviews yet</span><span class="rb-link">Be the first</span></button>`;
     return `<button class="rating-btn" type="button" data-action="open-reviews" data-class="${c.id}">${starsHTML(r.avg)}<span><strong>${r.avg.toFixed(1)}</strong> · ${countText(r)}</span><span class="rb-link">Read reviews</span></button>`;
   };
   // price for this email: first class free; a review earns 10% off the next paid class (CP1 return-phase measure)
@@ -1113,38 +1428,59 @@ select.input {
     $("#level-chips").innerHTML = [`<button class="chip" type="button" data-action="filter-level" data-value="any">Any level</button>`]
       .concat(Object.entries(LEVELS).map(([n, name]) => `<button class="chip" type="button" data-action="filter-level" data-value="${n}">${name}</button>`)).join("");
 
-    $("#hobby-chips").innerHTML = [`<button class="chip" type="button" data-action="filter-hobby" data-value="all">All</button>`]
-      .concat(HOBBIES.map((h) => `<button class="chip" type="button" data-action="filter-hobby" data-value="${esc(h)}">${esc(h)}</button>`)).join("");
+    refreshHobbies();
+    buildTypeChips();
+    buildHobbyChips();
     $("#day-chips").innerHTML = [`<button class="chip" type="button" data-action="filter-day" data-value="any">Any day</button>`]
       .concat(DAY_ORDER.map((d) => `<button class="chip" type="button" data-action="filter-day" data-value="${d}" title="${DAYS[d]}">${SHORT[d]}</button>`)).join("");
 
-    // class picker on the booking form
-    $("#f-class").innerHTML = `<option value="">Pick a class</option>` + CLASSES.map((c) => `<option value="${c.id}">${esc(c.title)}</option>`).join("");
-    setRoll(getClass(ui.roll) || CLASSES[3]);
+    refreshClassOptions();
+    $("#t-cat").innerHTML = CATEGORIES.map((cat) => `<option value="${cat}">${cat}</option>`).join("");
+    refreshHobbyList();
+    setRoll(getClass(ui.roll) || getClass("pottery"));
   }
+  function buildTypeChips() {
+    const used = CATEGORIES.filter((cat) => CLASSES.some((c) => catOf(c) === cat));
+    $("#type-chips").innerHTML = [`<button class="chip" type="button" data-action="filter-type" data-value="all">All types</button>`]
+      .concat(used.map((cat) => `<button class="chip" type="button" data-action="filter-type" data-value="${cat}">${cat}</button>`)).join("");
+  }
+  function buildHobbyChips() {
+    const shown = HOBBIES.filter((h) => ui.type === "all" || CLASSES.some((c) => c.hobby === h && catOf(c) === ui.type));
+    $("#hobby-chips").innerHTML = [`<button class="chip" type="button" data-action="filter-hobby" data-value="all">All</button>`]
+      .concat(shown.map((h) => `<button class="chip" type="button" data-action="filter-hobby" data-value="${esc(h)}">${esc(h)}</button>`)).join("");
+  }
+  // class picker on the booking form
+  const refreshClassOptions = () => {
+    $("#f-class").innerHTML = `<option value="">Pick a class</option>` + CLASSES.map((c) => `<option value="${c.id}">${esc(c.title)}</option>`).join("");
+  };
+  const refreshHobbyList = () => { $("#t-hobby-list").innerHTML = HOBBIES.map((h) => `<option value="${esc(h)}"></option>`).join(""); };
+  const refreshCatalogue = () => { refreshHobbies(); buildTypeChips(); buildHobbyChips(); refreshClassOptions(); refreshHobbyList(); };
 
   /* ---------- classes ---------- */
   const matchesQ = (c, q) => !q || [c.title, c.hobby, c.teacher, c.blurb, c.level, c.where].join(" ").toLowerCase().includes(q);
 
+  function slotButtonHTML(c, s) {
+    const left = spotsLeft(s);
+    if (!left) return `<button class="chip slot-btn is-full" type="button" data-action="remind-slot" data-class="${c.id}" data-slot="${s.id}">${esc(s.label)} <span class="left">· full · Remind me</span></button>`;
+    return `<button class="chip slot-btn" type="button" data-action="pick-slot" data-class="${c.id}" data-slot="${s.id}">${esc(s.label)} <span class="left">· ${left} left</span></button>`;
+  }
+  const lengthText = (c) => (lengthOf(c) === 60 ? "1 hour" : `${lengthOf(c) / 60} hours`);
   function classCardHTML(c, slots) {
-    const slotBtns = slots.map((s) => {
-      const left = spotsLeft(s);
-      return `<button class="chip slot-btn" type="button" data-action="pick-slot" data-class="${c.id}" data-slot="${s.id}" ${left ? "" : "disabled"}>${esc(s.label)} <span class="left">· ${left ? `${left} left` : "full"}</span></button>`;
-    }).join("");
     return `<li class="class-card">
       <div class="thumb c-${c.color}">${photo(c)}</div>
       <div class="cc-main">
-        <h2>${esc(c.title)}</h2>
+        <h3>${esc(c.title)}</h3>
         ${ratingButtonHTML(c)}
         <p class="cc-teacher">${esc(c.hobby)} · taught by ${esc(c.teacher)}${c.founder ? ", Sidequest founder" : ""}</p>
-        <div class="meta-row"><span class="tag">Lvl ${c.lvl} · ${esc(c.level)}</span><span class="tag">${lengthOf(c) === 60 ? "1 hour" : `${lengthOf(c) / 60} hours`}</span></div>
+        <div class="meta-row"><span class="tag">Lvl ${c.lvl} · ${esc(c.level)}</span><span class="tag">${lengthText(c)}</span>${c.custom ? `<span class="tag tag-new">New</span>` : ""}</div>
         <p>${esc(c.blurb)}</p>
+        ${c.bio ? `<p class="cc-loot"><strong>About ${esc(c.teacher)}:</strong> ${esc(c.bio)}</p>` : ""}
         <p class="cc-loot"><strong>Where:</strong> ${esc(c.where)}</p>
         <p class="cc-loot"><strong>Loot to bring:</strong> ${esc(c.loot)}</p>
-        <div class="slots" aria-label="Times for ${esc(c.title)}">${slotBtns}</div>
+        <div class="slots" aria-label="Times for ${esc(c.title)}">${slots.map((s) => slotButtonHTML(c, s)).join("")}</div>
       </div>
       <div class="cc-aside">
-        <p class="price">First class free <span>then $${c.price} per class</span></p>
+        <p class="price">First class free <span>then ${fmtMoney(c.price)} per class</span></p>
         <button class="btn btn-ink btn-block" type="button" data-action="pick-class" data-class="${c.id}">Book a class</button>
       </div>
     </li>`;
@@ -1164,9 +1500,9 @@ select.input {
         <div><h3 id="cal-d${i}">${name}</h3><p class="cal-date">${date}</p></div>
         ${todays.length ? `<ul class="cal-list">${todays.map(({ c, s }) => {
           const left = spotsLeft(s);
-          return `<li><button class="cal-slot c-${c.color}" type="button" data-action="pick-slot" data-class="${c.id}" data-slot="${s.id}" ${left ? "" : "disabled"}>
+          return `<li><button class="cal-slot ${left ? `c-${c.color}` : "is-full"}" type="button" data-action="${left ? "pick-slot" : "remind-slot"}" data-class="${c.id}" data-slot="${s.id}">
             <span class="cal-time">${fmtRange(c, s)}</span><span class="cal-title">${esc(c.title)}</span>
-            <span>Lvl ${c.lvl} · ${left ? `${left} ${left === 1 ? "spot" : "spots"} left` : "full"}</span></button></li>`;
+            <span>Lvl ${c.lvl} · ${left ? `${left} ${left === 1 ? "spot" : "spots"} left` : "full · Remind me"}</span></button></li>`;
         }).join("")}</ul>` : `<p class="cal-empty">No classes</p>`}
       </section>`;
     }).join("");
@@ -1174,6 +1510,7 @@ select.input {
   }
 
   function renderClasses() {
+    $$("#type-chips .chip").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.value === ui.type)));
     $$("#hobby-chips .chip").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.value === ui.hobby)));
     $$("#level-chips .chip").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.value === String(ui.level))));
     $$("#day-chips .chip").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.value === String(ui.day))));
@@ -1184,13 +1521,13 @@ select.input {
     const day = ui.day === "any" ? null : Number(ui.day);
     const lvl = ui.level === "any" ? null : Number(ui.level);
     const time = ui.time === "any" ? null : ui.time;
-    const fits = (c) => (ui.hobby === "all" || c.hobby === ui.hobby) && (lvl === null || c.lvl === lvl) && matchesQ(c, q);
+    const fits = (c) => (ui.type === "all" || catOf(c) === ui.type) && (ui.hobby === "all" || c.hobby === ui.hobby) && (lvl === null || c.lvl === lvl) && matchesQ(c, q);
     const slotOk = (s) => (day === null || s.day === day) && (time === null || timeOf(s.hour) === time);
     const list = CLASSES
       .filter(fits)
       .map((c) => ({ c, slots: c.slots.filter(slotOk) }))
       .filter((x) => x.slots.length);
-    const filtering = ui.hobby !== "all" || lvl !== null || day !== null || time !== null || q;
+    const filtering = ui.type !== "all" || ui.hobby !== "all" || lvl !== null || day !== null || time !== null || q;
     $("#clear-top").hidden = !filtering || !list.length;
 
     if (list.length && ui.view === "calendar") {
@@ -1201,15 +1538,18 @@ select.input {
     }
     if (list.length) {
       $("#results-count").textContent = `${list.length} ${list.length === 1 ? "class" : "classes"}${filtering ? " match" : ""}`;
-      $("#class-results").innerHTML = `<ul class="class-list">${list.map((x) => classCardHTML(x.c, x.slots)).join("")}</ul>`;
+      const groups = CATEGORIES.map((cat) => ({ cat, items: list.filter((x) => catOf(x.c) === cat) })).filter((g) => g.items.length);
+      $("#class-results").innerHTML = groups.map((g) => `<section class="cat-group" aria-labelledby="cat-${g.cat}">
+          <h2 class="cat-title" id="cat-${g.cat}">${g.cat} <span>${g.items.length} ${g.items.length === 1 ? "class" : "classes"}</span></h2>
+          <ul class="class-list">${g.items.map((x) => classCardHTML(x.c, x.slots)).join("")}</ul></section>`).join("");
       return;
     }
 
     // Error state 1: no class matches the filter
     const lvlWord = lvl === null ? "" : `${LEVELS[lvl].toLowerCase()} `;
-    const what = ui.hobby === "all"
-      ? (q ? `${lvlWord}“${esc(ui.q.trim())}” class` : `${lvlWord}class`)
-      : `${lvlWord}${esc(ui.hobby.toLowerCase())} class`;
+    const kind = ui.hobby !== "all" ? ui.hobby.toLowerCase() : ui.type !== "all" ? ui.type.toLowerCase() : "";
+    const what = kind ? `${lvlWord}${esc(kind)} class`
+      : (q ? `${lvlWord}“${esc(ui.q.trim())}” class` : `${lvlWord}class`);
     const when = day !== null && time !== null ? ` on ${DAYS[day]} ${time}`
       : day !== null ? ` on ${DAYS[day]}` : time !== null ? ` in the ${time}` : "";
     const heading = `No ${what} found${when}.`;
@@ -1228,6 +1568,7 @@ select.input {
           <div class="alts">${alts.map(({ c, s }) => `<button class="btn btn-mint btn-block" type="button" data-action="pick-slot" data-class="${c.id}" data-slot="${s.id}">${showClass ? `${esc(c.title)}: ` : ""}${esc(s.label)}</button>`).join("")}</div>
           <p class="or">or</p>` : `<p>Try another day, time, level or word.</p>`}
         <button class="btn" type="button" data-action="clear-filter">Clear filter</button>
+        <button class="link-btn" type="button" data-action="remind-new" data-hobby="${esc(ui.hobby === "all" ? "" : ui.hobby)}" data-day="${day === null ? "" : day}" data-time="${time || ""}">Remind me when a new ${esc(ui.hobby === "all" ? "class" : ui.hobby.toLowerCase())} time opens${when}</button>
       </div>`;
     track("filter_no_results", { hobby: ui.hobby, level: lvl === null ? "any" : LEVELS[lvl], day: day === null ? "any" : DAYS[day], time: ui.time, query: q });
   }
@@ -1239,7 +1580,7 @@ select.input {
     sel.disabled = false;
     sel.innerHTML = `<option value="">Pick a time</option>` + c.slots.map((s) => {
       const left = spotsLeft(s);
-      return `<option value="${s.id}" ${left ? "" : "disabled"}>${esc(s.label)} · ${left ? `${left} ${left === 1 ? "spot" : "spots"} left` : "full"}</option>`;
+      return `<option value="${s.id}" ${left ? "" : "disabled"}>${esc(s.label)} (${left ? `${left} left` : "full"})</option>`;
     }).join("");
     if (ui.pendingSlot && getSlot(c, ui.pendingSlot) && spotsLeft(getSlot(c, ui.pendingSlot))) sel.value = ui.pendingSlot;
   }
@@ -1250,25 +1591,40 @@ select.input {
       : `<a class="btn btn-lilac" href="#profile">Log in</a><p class="muted">Booked before? Log in and we fill in your details.</p>`;
   }
 
+  function bookingExtras() {
+    return {
+      friend: $("#f-friend").checked,
+      friendFirst: $("#f-friend-first").value.trim(),
+      friendEmail: normEmail($("#f-friend-email").value),
+      weeks: $("#f-weekly").checked ? Number($("#f-weeks").value) : 0,
+    };
+  }
+  const priceText = (pf, c, known) => (pf.free ? (known ? "Free, first class" : "Free if it's the first class")
+    : pf.discounted ? `${fmtMoney(pf.amount)} (10% off for a review, was ${fmtMoney(c.price)})` : fmtMoney(c.price));
+  const AGREE = `<p class="muted">By booking, you agree to the <a href="#terms">Terms</a> and the <a href="#refunds">Refund policy</a>.</p>`;
+
   function renderSummary() {
     const c = getClass(ui.pendingClass);
     const s = getSlot(c, ui.pendingSlot);
     const email = normEmail($("#f-email").value);
+    const x = bookingExtras();
     const box = $("#bk-summary");
     if (!c) {
       box.innerHTML = `<h2 id="sum-title">Your sidequest</h2><p>Pick a class to see its time, level, price and what to bring.</p>
         <a class="link-btn" href="#classes">Browse classes</a>
-        <button class="btn btn-ink btn-block" type="submit" form="bk-form">Book now</button>`;
+        <button class="btn btn-ink btn-block" type="submit" form="bk-form">Book now</button>${AGREE}`;
       return;
     }
-    const pf = priceFor(email, c);
-    const price = pf.free ? (email ? "Free · your first class" : "Free if it's your first class")
-      : pf.discounted ? `${fmtMoney(pf.amount)} · 10% off for your review (was $${c.price})`
-      : `$${c.price} · you've had your free class`;
+    const you = priceText(priceFor(email, c), c, Boolean(email));
+    let price = x.friend ? `You: ${you}<br>${esc(x.friendFirst || "Your friend")}: ${priceText(priceFor(x.friendEmail, c), c, Boolean(x.friendEmail))}` : you;
+    if (x.weeks) price += `<br>Then ${fmtMoney(c.price)} per class each week, paid as you go.`;
+    const when = !s ? "Pick a time" : x.weeks ? `Every ${DAYS[s.day]} · ${fmtRange(c, s)}, for ${x.weeks} weeks` : `${esc(s.label)} · ${fmtRange(c, s)}`;
+    const spots = s ? `${spotsLeft(s)} left${x.friend ? " · you're booking 2" : ""}` : "Pick a time to see spots";
     box.innerHTML = `
       <div class="sum-head"><div class="thumb c-${c.color}">${photo(c, false)}</div><div><p class="muted">${esc(c.hobby)}</p><h2 id="sum-title">${esc(c.title)}</h2></div></div>
       <dl class="sum-list">
-        <div><dt>When</dt><dd>${s ? esc(s.label) : "Pick a time"}</dd></div>
+        <div><dt>When</dt><dd>${when}</dd></div>
+        <div><dt>Spots</dt><dd>${spots}</dd></div>
         <div><dt>Level</dt><dd>Lvl ${c.lvl} · ${esc(c.level)}</dd></div>
         <div><dt>Where</dt><dd>${esc(c.where)}</dd></div>
         <div><dt>Loot to bring</dt><dd>${esc(c.loot)}</dd></div>
@@ -1276,7 +1632,7 @@ select.input {
         <div><dt>Cancellation</dt><dd>${CANCEL}</dd></div>
       </dl>
       <a class="link-btn" href="#classes">Change class</a>
-      <button class="btn btn-ink btn-block" type="submit" form="bk-form">Book now</button>`;
+      <button class="btn btn-ink btn-block" type="submit" form="bk-form">Book now</button>${AGREE}`;
   }
 
   function clearErrors() {
@@ -1326,6 +1682,13 @@ select.input {
     track("already_booked_shown", { class_id: c.id, slot_id: s.id });
   }
 
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  function resetExtras() {
+    $("#f-friend").checked = false; $("#f-weekly").checked = false;
+    $("#friend-fields").hidden = true; $("#weekly-field").hidden = true;
+    $("#f-friend-first").value = ""; $("#f-friend-email").value = "";
+  }
+
   function submitBooking(e) {
     e.preventDefault();
     clearErrors();
@@ -1334,42 +1697,68 @@ select.input {
     const first = $("#f-first").value.trim();
     const email = normEmail($("#f-email").value);
     const slotId = $("#f-slot").value;
+    const x = bookingExtras();
     const errs = [];
     if (!c) { setError("f-class", "Pick a class first."); errs.push("f-class"); }
     if (!first) { setError("f-first", "Add your first name so your teacher knows who's coming."); errs.push("f-first"); }
     if (!email) { setError("f-email", "Add your email so we can send you the class details."); errs.push("f-email"); }
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)) { setError("f-email", "This email looks incomplete. Try something like nora@email.com."); errs.push("f-email"); }
+    else if (!EMAIL_RE.test(email)) { setError("f-email", "This email looks incomplete. Try something like nora@email.com."); errs.push("f-email"); }
     if (c && !slotId) { setError("f-slot", "Pick a time that works for you."); errs.push("f-slot"); }
+    if (x.friend) {
+      if (!x.friendFirst) { setError("f-friend-first", "Add your friend's first name."); errs.push("f-friend-first"); }
+      if (!x.friendEmail) { setError("f-friend-email", "Add your friend's email so they get the details too."); errs.push("f-friend-email"); }
+      else if (!EMAIL_RE.test(x.friendEmail)) { setError("f-friend-email", "This email looks incomplete. Try something like alex@email.com."); errs.push("f-friend-email"); }
+      else if (x.friendEmail === email) { setError("f-friend-email", "Your friend needs their own email, so their first class can be free too."); errs.push("f-friend-email"); }
+    }
     if (errs.length) { $(`#${errs[0]}`).focus(); announce("Some details are missing. Check the highlighted fields."); return; }
 
     // Error state 2: class already booked by this user
     const dup = store.bookings.find((b) => b.email === email && b.slotId === slotId);
     if (dup) { showAlreadyBooked(dup, c); return; }
 
+    const s = getSlot(c, slotId);
+    if (x.friend) {
+      const fdup = store.bookings.find((b) => b.email === x.friendEmail && b.slotId === slotId);
+      if (fdup) { setError("f-friend-email", `${x.friendFirst} already has a spot at this time.`); $("#f-friend-email").focus(); return; }
+      if (spotsLeft(s) < 2) { setError("f-slot", "Only 1 spot is left at this time, so there's no room for a friend. Pick another time, or book just for you."); $("#f-slot").focus(); return; }
+    }
+
     const pf = priceFor(email, c);
-    const free = pf.free;
+    const pff = x.friend ? priceFor(x.friendEmail, c) : null;
+    const id = `b${Date.now().toString(36)}`;
+    const now = new Date().toISOString();
     const booking = {
-      id: `b${Date.now().toString(36)}`, classId: c.id, slotId, email, first,
+      id, classId: c.id, slotId, email, first,
       last: $("#f-last").value.trim(), phone: $("#f-phone").value.trim(), notes: $("#f-notes").value.trim(),
-      price: pf.amount, discounted: pf.discounted, createdAt: new Date().toISOString(),
+      price: pf.amount, discounted: pf.discounted, weeks: x.weeks, friendId: x.friend ? `${id}f` : null, createdAt: now,
     };
     if (pf.discounted) store.credits[email] -= 1;
     store.bookings.push(booking);
-    store.taken[slotId] = (store.taken[slotId] || 0) + 1;
+    let friendBooking = null;
+    if (x.friend) {
+      friendBooking = {
+        id: `${id}f`, classId: c.id, slotId, email: x.friendEmail, first: x.friendFirst, last: "", phone: "", notes: "",
+        price: pff.amount, discounted: pff.discounted, weeks: x.weeks, invitedBy: id, invitedByName: first, createdAt: now,
+      };
+      if (pff.discounted) store.credits[x.friendEmail] -= 1;
+      store.bookings.push(friendBooking);
+    }
+    store.taken[slotId] = (store.taken[slotId] || 0) + (x.friend ? 2 : 1);
     if (!store.user) store.user = { first, email };
     save();
-    track("booking_complete", { class_id: c.id, slot_id: slotId, free_first_class: free });
+    track("booking_complete", { class_id: c.id, slot_id: slotId, free_first_class: pf.free, with_friend: x.friend, weeks: x.weeks });
     ui.lastBookingId = booking.id;
     ui.pendingClass = null; ui.pendingSlot = null;
     $("#f-notes").value = "";
+    resetExtras();
     renderCart();
     go("confirmation");
     startEmail(booking);
+    if (friendBooking) startEmail(friendBooking);
   }
 
-  /* ---------- confirmation email ---------- */
-  async function sendConfirmation(b) {
-    const c = getClass(b.classId), s = getSlot(c, b.slotId);
+  /* ---------- emails ---------- */
+  async function sendEmailJS(templateId, params) {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), 12000);
     try {
@@ -1377,18 +1766,7 @@ select.input {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         signal: controller.signal,
-        body: JSON.stringify({
-          service_id: EMAIL.serviceId,
-          template_id: EMAIL.templateId,
-          user_id: EMAIL.publicKey,
-          template_params: {
-            email: b.email, to_name: b.first, booking_id: b.id,
-            class_title: c.title, hobby: c.hobby, teacher: c.teacher, level: c.level,
-            class_date: fmtDate(nextDate(s.day, s.hour)), class_time: fmtRange(c, s),
-            place: `${c.where}. ${WHERE_NOTE}`, loot: c.loot, cancellation: CANCEL,
-            price: b.price === 0 ? "Free, your first class" : `${fmtMoney(b.price)}${b.discounted ? " (10% off for your review)" : ""}`,
-          },
-        }),
+        body: JSON.stringify({ service_id: EMAIL.serviceId, template_id: templateId, user_id: EMAIL.publicKey, template_params: params }),
       });
       if (!res.ok) throw new Error(`EmailJS answered ${res.status}`);
       return true;
@@ -1396,20 +1774,39 @@ select.input {
       clearTimeout(timer);
     }
   }
+  const priceLine = (b) => (b.price === 0 ? "Free, your first class" : `${fmtMoney(b.price)}${b.discounted ? " (10% off for your review)" : ""}`);
+  function bookingParams(b) {
+    const c = getClass(b.classId), s = getSlot(c, b.slotId);
+    const friend = b.friendId ? store.bookings.find((x) => x.id === b.friendId) : null;
+    return {
+      email: b.email, to_name: b.first, booking_id: b.id,
+      class_title: c.title, hobby: c.hobby, teacher: c.teacher, level: c.level,
+      class_date: fmtDate(nextDate(s.day, s.hour)), class_time: fmtRange(c, s),
+      place: `${c.where}. ${WHERE_NOTE}`, loot: c.loot, cancellation: CANCEL,
+      price: priceLine(b) + (b.weeks ? `, then ${fmtMoney(c.price)} per class each week` : ""),
+      repeat: b.weeks ? `Every ${DAYS[s.day]} for ${b.weeks} weeks` : "One class",
+      spots: friend ? `2 (you and ${friend.first})` : b.invitedBy ? `1, booked for you by ${b.invitedByName}` : "1",
+    };
+  }
+  const sendConfirmation = (b) => sendEmailJS(EMAIL.templateId, bookingParams(b));
+  const sendNotice = (email, name, subject, message) => sendEmailJS(EMAIL.noticeTemplateId, { email, to_name: name || "there", subject, message });
 
   function emailStatusHTML(b) {
     const to = `<strong>${esc(b.email)}</strong>`;
+    const whose = b.invitedBy ? `${esc(b.first)}'s confirmation` : "your confirmation";
     switch (b.emailStatus) {
-      case "sending": return `<p class="note">Sending your confirmation to ${to}…</p>`;
-      case "sent": return `<p class="note is-sent">Confirmation sent to ${to}. Check your inbox, and your spam folder just in case.</p>`;
-      case "failed": return `<div class="note is-failed"><p>We couldn't send the confirmation email to ${to}. Your spot is still booked, and everything you need is on this page.</p>
-        <button class="btn" type="button" data-action="resend-email">Try again</button></div>`;
-      default: return `<p class="note">Confirmation emails aren't switched on yet, so keep this page. Everything you need for class is here.</p>`;
+      case "sending": return `<p class="note">Sending ${whose} to ${to}…</p>`;
+      case "sent": return `<p class="note is-sent">${b.invitedBy ? `${esc(b.first)}'s confirmation` : "Confirmation"} sent to ${to}.${b.invitedBy ? "" : " Check your inbox, and your spam folder just in case."}</p>`;
+      case "failed": return `<div class="note is-failed"><p>We couldn't send ${whose} to ${to}. ${b.invitedBy ? "Their spot is still booked." : "Your spot is still booked, and everything you need is on this page."}</p>
+        <button class="btn" type="button" data-action="resend-email" data-id="${b.id}">Try again</button></div>`;
+      default: return b.invitedBy
+        ? `<p class="note">Emails aren't switched on yet, so share these details with ${esc(b.first)}.</p>`
+        : `<p class="note">Confirmation emails aren't switched on yet, so keep this page. Everything you need for class is here.</p>`;
     }
   }
   function updateEmailStatus(b) {
-    const el = $("#email-status");
-    if (el && ui.lastBookingId === b.id) el.innerHTML = emailStatusHTML(b);
+    const el = document.querySelector(`[data-email-for="${b.id}"]`);
+    if (el) el.innerHTML = emailStatusHTML(b);
   }
   function startEmail(b) {
     if (!emailOn()) { b.emailStatus = "off"; save(); updateEmailStatus(b); return; }
@@ -1434,6 +1831,7 @@ select.input {
       location: `${c.where}, Montréal`,
       details: `What to bring: ${c.loot}\nCancellation: ${CANCEL}\n${WHERE_NOTE}`,
     });
+    if (b.weeks) q.set("recur", `RRULE:FREQ=WEEKLY;COUNT=${b.weeks}`);
     return `https://calendar.google.com/calendar/render?${q.toString()}`;
   }
   const CAL_ICON = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4M12 13v5M9.5 15.5h5"/></svg>`;
@@ -1442,31 +1840,41 @@ select.input {
   function renderConfirmation() {
     const b = store.bookings.find((x) => x.id === ui.lastBookingId);
     const box = $("#confirm-body");
-    if (!b) {
+    const c = b ? getClass(b.classId) : null;
+    if (!b || !c) {
       box.innerHTML = `<div class="confirm"><h1 class="t-title" id="confirm-title" tabindex="-1" data-focus>No booking yet</h1>
         <p class="lede">Pick a class and your confirmation shows up here.</p>
         <div class="row-actions"><a class="btn btn-ink" href="#classes">Book a class</a></div></div>`;
       return;
     }
-    const c = getClass(b.classId), s = getSlot(c, b.slotId);
+    const s = getSlot(c, b.slotId);
+    const friend = b.friendId ? store.bookings.find((x) => x.id === b.friendId) : null;
+    const start = nextDate(s.day, s.hour);
+    const dates = b.weeks ? Array.from({ length: b.weeks }, (_, i) => new Date(start.getTime() + i * 7 * 86400000)) : [];
+    const left = spotsLeft(s);
     box.innerHTML = `<div class="confirm">
       <p class="sticker">Quest unlocked</p>
       <h1 class="t-title" id="confirm-title" tabindex="-1" data-focus>You're booked, ${esc(b.first)}!</h1>
-      <p class="lede">See you on ${esc(DAYS[s.day])}. Here's everything you need for ${esc(c.title)}.</p>
+      <p class="lede">${friend ? `You and ${esc(friend.first)} have 2 spots in ${esc(c.title)}.` : `See you on ${esc(DAYS[s.day])}. Here's everything you need for ${esc(c.title)}.`}${b.weeks ? ` Same time every week for ${b.weeks} weeks.` : ""}</p>
       <div class="ticket">
         <div class="ticket-top"><div class="thumb c-${c.color}">${photo(c)}</div>
           <div><p class="muted">${esc(c.hobby)}</p><h2>${esc(c.title)}</h2></div>
           ${b.price === 0 ? `<span class="stamp">First class free</span>` : ""}</div>
         <dl>
-          <dt>When</dt><dd>${esc(fmtDate(nextDate(s.day, s.hour)))} · ${fmtRange(c, s)}</dd>
+          <dt>When</dt><dd>${b.weeks ? `Every ${DAYS[s.day]} · ${fmtRange(c, s)}, starting ${esc(fmtDate(start))}` : `${esc(fmtDate(start))} · ${fmtRange(c, s)}`}</dd>
+          ${b.weeks ? `<dt>Dates</dt><dd><span class="date-chips">${dates.map((d) => `<span class="tag">${d.toLocaleDateString("en-GB", { day: "numeric", month: "short" })}</span>`).join("")}</span></dd>` : ""}
+          <dt>Spots</dt><dd>${friend ? `2 (you and ${esc(friend.first)})` : "1"} · ${left} ${left === 1 ? "spot" : "spots"} left at this time now</dd>
           <dt>Where</dt><dd>${esc(c.where)}. ${WHERE_NOTE}</dd>
           <dt>Loot to bring</dt><dd>${esc(c.loot)}</dd>
-          <dt>Price</dt><dd>${b.price === 0 ? "Free, your first class" : `${fmtMoney(b.price)}${b.discounted ? " (10% off for your review)" : ""}`}</dd>
-          <dt>Cancellation</dt><dd>${CANCEL}</dd>
-          <dt>Booked with</dt><dd>${esc(b.email)}</dd>
+          <dt>Price</dt><dd>${friend ? `You: ${priceLine(b)}<br>${esc(friend.first)}: ${priceLine(friend)}` : priceLine(b)}${b.weeks ? `<br>Then ${fmtMoney(c.price)} per class each week, paid as you go. Skip or cancel any week.` : ""}</dd>
+          <dt>Cancellation</dt><dd>${CANCEL}. <a href="#refunds">Refund policy</a></dd>
+          <dt>Booked with</dt><dd>${esc(b.email)}${friend ? `<br>${esc(friend.email)} (${esc(friend.first)})` : ""}</dd>
         </dl>
       </div>
-      <div id="email-status" aria-live="polite">${emailStatusHTML(b)}</div>
+      <div class="email-notes" aria-live="polite">
+        <div data-email-for="${b.id}">${emailStatusHTML(b)}</div>
+        ${friend ? `<div data-email-for="${friend.id}">${emailStatusHTML(friend)}</div>` : ""}
+      </div>
       <p class="note">After class, <button class="link-btn" type="button" data-action="open-reviews" data-class="${c.id}" data-write="1">leave a review</button> and get 10% off your next one.</p>
       <div class="row-actions">
         <a class="btn btn-mint gcal" href="${esc(gcalURL(b))}" target="_blank" rel="noopener" data-track="add_to_calendar">${CAL_ICON}Add to Google Calendar</a>
@@ -1511,7 +1919,7 @@ select.input {
     return `<li class="review ${r.sample ? "" : "is-mine"}">
       <div class="rv-head"><span class="avatar c-${colour}" aria-hidden="true">${esc(initials)}</span>
         <div class="rv-who"><p class="rv-name">${esc(r.name)}</p><p class="muted">${esc(monthLabel(r.date))}</p></div>
-        <span class="tag ${r.sample ? "" : "tag-mine"}">${r.sample ? "Sample review" : "Your review"}</span></div>
+        ${r.sample ? "" : `<span class="tag tag-mine">Your review</span>`}</div>
       ${starsHTML(r.rating)}
       ${r.text ? `<p>${esc(r.text)}</p>` : `<p class="muted">Rating only, no written review.</p>`}
     </li>`;
@@ -1545,8 +1953,7 @@ select.input {
       <div class="rv-grid">
         <div class="panel rv-summary">
           <div class="thumb rv-photo c-${c.color}">${photo(c)}</div>
-          <p class="rv-avg"><span>${r.avg.toFixed(1)}</span> out of 5</p>
-          ${starsHTML(r.avg, "lg")}
+          ${r.count ? `<p class="rv-avg"><span>${r.avg.toFixed(1)}</span> out of 5</p>${starsHTML(r.avg, "lg")}` : `<p class="rv-avg"><span>New</span></p>`}
           <p>${countText(r)}</p>
           <ul class="dist" aria-label="How the ratings split">${dist.map((d) => `<li><span><span aria-hidden="true">${d.n} ★</span><span class="sr-only">${d.n} ${d.n === 1 ? "star" : "stars"}</span></span>
             <span class="bar" aria-hidden="true"><span style="width:${r.count ? (d.k / r.count) * 100 : 0}%"></span></span><span>${d.k}</span></li>`).join("")}</ul>
@@ -1554,7 +1961,7 @@ select.input {
         </div>
 
         <section class="rv-main" aria-labelledby="rv-list-title">
-          <p class="note">Reviews marked "Sample review" were written for this course demo, not by real learners. Reviews you post show up as "Your review".</p>
+          <p class="note">Every review without a "Your review" tag is a sample written for this course demo, not by a real learner.</p>
           <div class="rv-tools">
             <h2 class="t-sub" id="rv-list-title">What people say</h2>
             <div class="chip-row" id="rv-sort" role="group" aria-label="Sort reviews">
@@ -1651,24 +2058,28 @@ select.input {
   function renderProfile() {
     const box = $("#profile-body");
     const u = store.user;
-    let list = u ? store.bookings.filter((b) => b.email === u.email) : store.bookings.slice();
-    if (ui.highlight && !list.some((b) => b.id === ui.highlight)) list = store.bookings.slice();
+    const valid = store.bookings.filter((b) => getClass(b.classId));
+    let list = u ? valid.filter((b) => b.email === u.email) : valid.slice();
+    if (ui.highlight && !list.some((b) => b.id === ui.highlight)) list = valid.slice();
     const n = list.length;
     const xp = Array.from({ length: 5 }, (_, i) => `<span class="${i < n ? "on" : ""}">${i < n ? CHECK : ""}</span>`).join("");
     const items = list.map((b) => {
       const c = getClass(b.classId), s = getSlot(c, b.slotId);
       const hl = b.id === ui.highlight;
+      const friend = b.friendId ? store.bookings.find((x) => x.id === b.friendId) : null;
+      const extra = [b.weeks ? `Every ${DAYS[s.day]} · ${b.weeks} weeks` : "", friend ? `With ${esc(friend.first)}` : "", b.invitedBy ? `Booked by ${esc(b.invitedByName)}` : ""].filter(Boolean).join(" · ");
       return `<li class="booking-item ${hl ? "is-hl" : ""}" ${hl ? 'id="hl-booking"' : ""}>
         <div class="thumb c-${c.color}">${photo(c, false)}</div>
-        <div><h3>${esc(c.title)}</h3><p>${esc(fmtDate(nextDate(s.day, s.hour)))} · ${fmtRange(c, s)}</p><p>${esc(c.where)}</p><p class="muted">${b.price === 0 ? "Free first class" : fmtMoney(b.price)} · ${esc(b.email)}</p></div>
+        <div><h3>${esc(c.title)}</h3><p>${esc(fmtDate(nextDate(s.day, s.hour)))} · ${fmtRange(c, s)}</p>${extra ? `<p><strong>${extra}</strong></p>` : ""}<p>${esc(c.where)}</p><p class="muted">${b.price === 0 ? "Free first class" : fmtMoney(b.price)} · ${esc(b.email)}</p></div>
         <div class="bi-actions">
           <a class="link-btn" href="${esc(gcalURL(b))}" target="_blank" rel="noopener" data-track="add_to_calendar">Add to calendar</a>
           <button class="link-btn" type="button" data-action="open-reviews" data-class="${c.id}" data-write="1">Write a review</button>
-          <button class="link-btn" type="button" data-action="cancel-booking" data-id="${b.id}">Cancel booking</button>
+          <button class="link-btn" type="button" data-action="cancel-booking" data-id="${b.id}">Cancel booking${friend ? " (both spots)" : ""}</button>
         </div>
         ${hl ? `<p class="hl-note">This is the booking you tried to make again.</p>` : ""}
       </li>`;
     }).join("");
+    const alerts = store.alerts.filter((a) => !a.done && (!u || a.email === u.email));
 
     const account = u
       ? `<div class="panel" style="display:grid;gap:16px">
@@ -1689,14 +2100,21 @@ select.input {
 
     box.innerHTML = `<div class="page-head">
         <h1 class="t-title" id="profile-title" tabindex="-1" data-focus>${u ? `Hey, ${esc(u.first)}` : "Your profile"}</h1>
-        <p class="lede">${u ? "Your bookings, all in one place." : "Log in to see your bookings and fill in the booking form faster."}</p>
+        <p class="lede">${u ? "Your bookings and reminders, all in one place." : "Log in to see your bookings and fill in the booking form faster."}</p>
       </div>
       <div class="profile-grid">
         ${account}
-        <section aria-labelledby="my-bookings-title" style="display:grid;gap:16px">
-          <h2 class="t-sub" id="my-bookings-title">My bookings</h2>
-          ${n ? `<ul class="booking-list">${items}</ul>` : `<div class="empty"><h2>No bookings yet</h2><p>Your first class is free.</p><a class="btn btn-ink" href="#classes">Book a class</a></div>`}
-        </section>
+        <div style="display:grid;gap:32px">
+          <section aria-labelledby="my-bookings-title" style="display:grid;gap:16px">
+            <h2 class="t-sub" id="my-bookings-title">My bookings</h2>
+            ${n ? `<ul class="booking-list">${items}</ul>` : `<div class="empty"><h2>No bookings yet</h2><p>Your first class is free.</p><a class="btn btn-ink" href="#classes">Book a class</a></div>`}
+          </section>
+          ${alerts.length ? `<section aria-labelledby="my-alerts-title" style="display:grid;gap:16px">
+            <h2 class="t-sub" id="my-alerts-title">My reminders</h2>
+            <ul class="my-classes">${alerts.map((a) => `<li><strong>${esc(a.label)}</strong><span class="muted">We'll email ${esc(a.email)}</span>
+              <button class="link-btn" type="button" data-action="remove-alert" data-id="${a.id}">Remove reminder</button></li>`).join("")}</ul>
+          </section>` : ""}
+        </div>
       </div>`;
     if (ui.highlight && $("#hl-booking")) setTimeout(() => $("#hl-booking").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" }), 120);
     ui.highlight = null;
@@ -1716,6 +2134,190 @@ select.input {
     renderProfile();
     $("#profile-title").focus();
     announce(`Logged in as ${first}.`);
+  }
+
+  /* ---------- reminders: "remind me when a slot opens" (CP1 decision-phase fix) ---------- */
+  let remindReturn = null, toastTimer = null;
+  function openRemind(draft) {
+    ui.remindDraft = draft;
+    remindReturn = document.activeElement;
+    $("#remind-text").textContent = draft.text;
+    $("#rm-email").value = store.user ? store.user.email : "";
+    $("#rm-email").removeAttribute("aria-invalid"); $("#rm-email-err").hidden = true;
+    $("#remind-form").hidden = false; $("#remind-done").hidden = true;
+    $("#remind").hidden = false;
+    setTimeout(() => $("#rm-email").focus(), 30);
+  }
+  function closeRemind() {
+    if ($("#remind").hidden) return;
+    $("#remind").hidden = true;
+    if (remindReturn && remindReturn.isConnected) remindReturn.focus();
+  }
+  function submitRemind(e) {
+    e.preventDefault();
+    const email = normEmail($("#rm-email").value);
+    if (!EMAIL_RE.test(email)) {
+      $("#rm-email").setAttribute("aria-invalid", "true"); $("#rm-email-err").textContent = "Add an email like nora@email.com."; $("#rm-email-err").hidden = false;
+      $("#rm-email").focus(); return;
+    }
+    const d = ui.remindDraft;
+    const same = (a) => !a.done && a.email === email && a.type === d.type && a.slotId === d.slotId && a.hobby === d.hobby && a.day === d.day && a.time === d.time;
+    if (!store.alerts.some(same)) store.alerts.push({ id: `a${Date.now().toString(36)}`, ...d, email, done: false, created: new Date().toISOString() });
+    save();
+    track("reminder_set", { type: d.type });
+    $("#remind-form").hidden = true;
+    $("#remind-done").hidden = false;
+    $("#remind-done").innerHTML = `<p class="note is-sent">Done! We'll email ${esc(email)} ${d.type === "slot" ? "as soon as a spot opens." : "when a new time is added."}</p>
+      <button class="btn btn-ink" type="button" data-action="close-remind">Close</button>`;
+    $("#remind-done .btn").focus();
+  }
+  function toast(msg) {
+    $("#toast-text").textContent = msg;
+    $("#toast").hidden = false;
+    announce(msg);
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => { $("#toast").hidden = true; }, 10000);
+  }
+  function fireAlert(a, subject, message) {
+    a.done = true;
+    track("reminder_fired", { type: a.type });
+    if (!noticeOn()) { toast(`${message} Reminder emails aren't switched on yet, so this note is the reminder for ${a.email}.`); return; }
+    sendNotice(a.email, store.user && store.user.email === a.email ? store.user.first : "", subject, message)
+      .then(() => toast(`${message} We emailed ${a.email}.`))
+      .catch(() => toast(`${message} We couldn't email ${a.email}, so this note is the reminder.`));
+  }
+  function fireSlotAlerts(slotId) {
+    const f = findSlot(slotId);
+    if (!f) return;
+    store.alerts.filter((a) => !a.done && a.type === "slot" && a.slotId === slotId)
+      .forEach((a) => fireAlert(a, `A spot opened: ${f.c.title}`, `A spot just opened in ${f.c.title} on ${f.s.label}.`));
+    save();
+  }
+  function fireNewAlerts(c) {
+    store.alerts.filter((a) => !a.done && a.type === "new"
+      && (!a.hobby || a.hobby.toLowerCase() === c.hobby.toLowerCase())
+      && (a.day === null || c.slots.some((s) => s.day === a.day))
+      && (!a.time || c.slots.some((s) => timeOf(s.hour) === a.time)))
+      .forEach((a) => fireAlert(a, `New on Sidequest: ${c.title}`, `${c.title} was just added, on ${c.slots.map((s) => s.label).join(" and ")}.`));
+    save();
+  }
+
+  /* ---------- teach on Sidequest (Jane, CP1 persona 2; story 3.1) ---------- */
+  const TEACH_LEVELS = { "Total beginner": 1, Beginner: 1, Intermediate: 2, Advanced: 3 };
+  let teachPhoto = null, teachRowSeq = 0;
+  function timeRowHTML(i) {
+    return `<div class="t-row" data-row="${i}">
+      <div class="field"><label for="t-day-${i}">Day</label><select class="input" id="t-day-${i}">${DAY_ORDER.map((d) => `<option value="${d}">${DAYS[d]}</option>`).join("")}</select></div>
+      <div class="field"><label for="t-hour-${i}">Starts at</label><select class="input" id="t-hour-${i}">${Array.from({ length: 14 }, (_, k) => k + 8).map((h) => `<option value="${h}" ${h === 18 ? "selected" : ""}>${fmtHour(h)}</option>`).join("")}</select></div>
+      <div class="field"><label for="t-spots-${i}">Spots</label><select class="input" id="t-spots-${i}">${[2, 3, 4, 5, 6, 8, 10, 12].map((n) => `<option value="${n}" ${n === 6 ? "selected" : ""}>${n}</option>`).join("")}</select></div>
+      ${i > 0 ? `<button class="link-btn" type="button" data-action="remove-time" data-row="${i}">Remove</button>` : "<span></span>"}
+    </div>`;
+  }
+  function resetTeachTimes() { teachRowSeq = 0; $("#t-times").innerHTML = timeRowHTML(0); $("#t-add-time").hidden = false; }
+  function priceHint() {
+    const raw = $("#t-price").value, v = Number(raw), el = $("#t-price-hint");
+    if (raw === "") el.textContent = "Most classes on Sidequest cost $8–14. Learners we interviewed usually pay $6–12 a class.";
+    else if (v < 8) el.textContent = "That's on the low side here. You can charge a bit more.";
+    else if (v > 14) el.textContent = "That's more than most classes here, so say what's included.";
+    else el.textContent = "Right in the usual range for Sidequest.";
+  }
+  function hobbyHint() {
+    const raw = $("#t-hobby").value.trim();
+    const match = HOBBIES.find((h) => h.toLowerCase() === raw.toLowerCase());
+    if (match) { const c = CLASSES.find((x) => x.hobby === match); $("#t-cat").value = catOf(c); }
+    const nice = raw.charAt(0).toUpperCase() + raw.slice(1);
+    $("#t-hobby-hint").textContent = !raw ? "Pick one from the list or type a new one." : match ? `Joins the other ${match.toLowerCase()} classes.` : `New hobby! ${nice} gets added to the list.`;
+  }
+  function renderMyClasses() {
+    const mine = CLASSES.filter((c) => c.custom);
+    $("#my-classes").innerHTML = `<h2>Classes you added</h2>${mine.length
+      ? `<ul class="my-classes">${mine.map((c) => `<li><strong>${esc(c.title)}</strong><span>${esc(c.slots.map((s) => s.label).join(", "))} · ${fmtMoney(c.price)}</span>
+          <span class="bi-actions"><button class="link-btn" type="button" data-action="see-hobby" data-hobby="${esc(c.hobby)}">See it in Classes</button>
+          <button class="link-btn" type="button" data-action="remove-class" data-id="${c.id}">Remove class</button></span></li>`).join("")}</ul>`
+      : `<p class="muted">Classes you add show up here, and on the Classes page.</p>`}`;
+  }
+  function renderTeach() {
+    if (!$("#t-times").children.length) resetTeachTimes();
+    if (store.user) {
+      if (!$("#t-name").value) $("#t-name").value = store.user.first;
+      if (!$("#t-email").value) $("#t-email").value = store.user.email;
+    }
+    refreshHobbyList(); priceHint(); hobbyHint(); renderMyClasses();
+  }
+  function resizePhoto(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onerror = reject;
+      reader.onload = () => {
+        const img = new Image();
+        img.onerror = reject;
+        img.onload = () => {
+          const scale = Math.min(1, 800 / Math.max(img.width, img.height));
+          const cv = document.createElement("canvas");
+          cv.width = Math.round(img.width * scale); cv.height = Math.round(img.height * scale);
+          cv.getContext("2d").drawImage(img, 0, 0, cv.width, cv.height);
+          resolve(cv.toDataURL("image/jpeg", 0.8));
+        };
+        img.src = reader.result;
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+  function submitTeach(e) {
+    e.preventDefault();
+    const form = $("#teach-form");
+    $$(".err", form).forEach((x) => { x.hidden = true; x.textContent = ""; });
+    $$("[aria-invalid]", form).forEach((x) => x.removeAttribute("aria-invalid"));
+    $("#teach-feedback").innerHTML = "";
+    const v = (id) => $(`#${id}`).value.trim();
+    const bad = [];
+    const need = (id, ok, msg) => { if (!ok) { $(`#${id}`).setAttribute("aria-invalid", "true"); $(`#${id}-err`).textContent = msg; $(`#${id}-err`).hidden = false; bad.push(id); } };
+    const name = v("t-name"), email = normEmail(v("t-email")), hobbyRaw = v("t-hobby"), priceRaw = v("t-price");
+    need("t-name", name, "Add your name.");
+    need("t-email", EMAIL_RE.test(email), "Add an email like jane@email.com. Learners never see it.");
+    need("t-hobby", hobbyRaw, "Which hobby do you teach?");
+    need("t-blurb", v("t-blurb"), "Say in a sentence what learners will do.");
+    need("t-where", v("t-where"), "Say where the class happens, like: Studio · Mile End.");
+    need("t-loot", v("t-loot"), "Say what's included or what to bring.");
+    need("t-price", priceRaw !== "" && Number(priceRaw) >= 0 && Number(priceRaw) <= 200, "Add a price per class. New learners still get their first class free.");
+    if (bad.length) { $(`#${bad[0]}`).focus(); return; }
+
+    const existing = HOBBIES.find((h) => h.toLowerCase() === hobbyRaw.toLowerCase());
+    const hobby = existing || hobbyRaw.charAt(0).toUpperCase() + hobbyRaw.slice(1);
+    const first = name.split(/\s+/)[0];
+    const cat = $("#t-cat").value;
+    const levelName = $("#t-level").value;
+    const id = `t${Date.now().toString(36)}`;
+    const seen = new Set();
+    const rows = $$("#t-times .t-row").map((r) => ({ day: Number($(`#t-day-${r.dataset.row}`).value), hour: Number($(`#t-hour-${r.dataset.row}`).value), spots: Number($(`#t-spots-${r.dataset.row}`).value) }))
+      .filter((r) => { const k = `${r.day}-${r.hour}`; if (seen.has(k)) return false; seen.add(k); return true; });
+    const title = v("t-title") || `${hobby} with ${first}`;
+    const loot = v("t-loot");
+    const c = {
+      id, hobby, title, teacher: first, bio: v("t-bio"), custom: true, ownerEmail: email, cat,
+      lvl: TEACH_LEVELS[levelName], level: levelName, color: CAT_COLOUR[cat] || "lilac",
+      price: Math.round(Number(priceRaw) * 100) / 100, mins: Number($("#t-length").value),
+      blurb: v("t-blurb"), loot, lootShort: loot.length > 34 ? `${loot.slice(0, 32)}…` : loot, where: v("t-where"),
+      photoData: teachPhoto, alt: teachPhoto ? `Class photo for ${title}` : "",
+      slots: rows.map((r) => slot(`${id}-${r.day}-${r.hour}`, r.day, r.hour, r.spots)),
+    };
+    store.customClasses.push(c); CLASSES.push(c);
+    if (!save()) {
+      store.customClasses.pop(); CLASSES.pop();
+      $("#t-photo-err").textContent = "This photo is too big to save in the demo. Try a smaller one, or skip the photo."; $("#t-photo-err").hidden = false;
+      $("#t-photo").focus(); return;
+    }
+    refreshCatalogue();
+    track("class_listed", { hobby, new_hobby: !existing, category: cat });
+    fireNewAlerts(c);
+    if (noticeOn()) sendNotice(email, first, `Your class is on Sidequest: ${title}`, `${title} is now listed on Sidequest, on ${c.slots.map((s) => s.label).join(" and ")}. On the real Sidequest, the team checks every new class within 48 hours.`).catch(() => {});
+    form.reset(); teachPhoto = null; $("#t-photo-preview").hidden = true; $("#t-photo-preview").innerHTML = "";
+    resetTeachTimes(); priceHint(); hobbyHint();
+    $("#teach-feedback").innerHTML = `<div class="note is-sent" style="display:grid;gap:12px;justify-items:start"><p><strong>Your class is live!</strong> ${esc(title)} is now on the Classes page${existing ? "" : `, and ${esc(hobby)} is a new hobby on the list`}.</p>
+      <button class="btn btn-ink" type="button" data-action="see-hobby" data-hobby="${esc(hobby)}">See it in Classes</button></div>`;
+    renderMyClasses();
+    $("#teach-feedback").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+    announce(`${title} is now on the Classes page.`);
   }
 
   /* ---------- cart ---------- */
@@ -1739,7 +2341,7 @@ select.input {
   };
 
   /* ---------- routing (plain #name hashes) ---------- */
-  const VIEWS = ["home", "classes", "booking", "confirmation", "profile", "reviews"];
+  const VIEWS = ["home", "classes", "booking", "confirmation", "profile", "reviews", "teach", "terms", "privacy", "refunds"];
   let firstRoute = true;
   function go(name) { if (location.hash === `#${name}`) route(); else location.hash = name; }
   function route() {
@@ -1747,12 +2349,13 @@ select.input {
     let view = h === "how-it-works" ? "home" : h;
     if (!VIEWS.includes(view)) view = "home";
     $$(".view").forEach((v) => { v.hidden = v.dataset.view !== view; });
-    closeMenu(false); closeCart();
+    closeMenu(false); closeCart(); closeRemind();
     if (view === "classes") renderClasses();
     if (view === "booking") enterBooking();
     if (view === "confirmation") renderConfirmation();
     if (view === "profile") renderProfile();
     if (view === "reviews") renderReviews();
+    if (view === "teach") renderTeach();
     const navKey = h === "how-it-works" ? "how-it-works" : view === "reviews" ? "classes" : view;
     $$("[data-nav]").forEach((a) => { if (a.dataset.nav === navKey) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
     if (h === "how-it-works") {
@@ -1777,6 +2380,7 @@ select.input {
     }
     const a = el.dataset.action;
     if (a === "close-menu-backdrop") { if (e.target === el) closeMenu(true); return; }
+    if (a === "close-remind-backdrop") { if (e.target === el) closeRemind(); return; }
     switch (a) {
       case "skip": e.preventDefault(); $("#main").focus(); break;
       case "open-menu": openMenu(); break;
@@ -1784,13 +2388,62 @@ select.input {
       case "toggle-cart": e.stopPropagation(); if ($("#cart").hidden) openCart(); else closeCart(); break;
       case "close-cart": closeCart(); break;
       case "spin": spin(); break;
-      case "see-hobby": ui.hobby = el.dataset.hobby; ui.level = "any"; ui.day = "any"; ui.time = "any"; ui.q = ""; go("classes"); break;
+      case "see-hobby": ui.type = "all"; buildHobbyChips(); ui.hobby = el.dataset.hobby; ui.level = "any"; ui.day = "any"; ui.time = "any"; ui.q = ""; go("classes"); break;
+      case "filter-type": ui.type = el.dataset.value; ui.hobby = "all"; buildHobbyChips(); renderClasses(); break;
+      case "remind-slot": {
+        const c = getClass(el.dataset.class), s = getSlot(c, el.dataset.slot);
+        openRemind({ type: "slot", slotId: s.id, classId: c.id, hobby: null, day: null, time: null, label: `${c.title} · ${s.label}`,
+          text: `${c.title} on ${s.label} is full. Leave your email and we'll tell you as soon as a spot opens.` });
+        break;
+      }
+      case "remind-new": {
+        const hobby = el.dataset.hobby || null, day = el.dataset.day === "" ? null : Number(el.dataset.day), time = el.dataset.time || null;
+        const when = day !== null && time ? ` on ${DAYS[day]} ${time}` : day !== null ? ` on ${DAYS[day]}` : time ? ` in the ${time}` : "";
+        const what = hobby ? hobby.toLowerCase() : "class";
+        openRemind({ type: "new", slotId: null, classId: null, hobby, day, time, label: `New ${what} time${when}`,
+          text: `No ${what} time${when} yet. Leave your email and we'll tell you when one is added.` });
+        break;
+      }
+      case "close-remind": closeRemind(); break;
+      case "close-toast": $("#toast").hidden = true; break;
+      case "remove-alert": store.alerts = store.alerts.filter((x) => x.id !== el.dataset.id); save(); renderProfile(); announce("Reminder removed."); break;
+      case "add-time": {
+        if ($$("#t-times .t-row").length >= 3) break;
+        teachRowSeq += 1;
+        $("#t-times").insertAdjacentHTML("beforeend", timeRowHTML(teachRowSeq));
+        if ($$("#t-times .t-row").length >= 3) $("#t-add-time").hidden = true;
+        $(`#t-day-${teachRowSeq}`).focus();
+        break;
+      }
+      case "remove-time": { const r = $(`#t-times .t-row[data-row="${el.dataset.row}"]`); if (r) r.remove(); $("#t-add-time").hidden = false; $("#t-add-time").focus(); break; }
+      case "remove-class": {
+        const id = el.dataset.id, c = getClass(id);
+        if (!c) break;
+        CLASSES.splice(CLASSES.indexOf(c), 1);
+        store.customClasses = store.customClasses.filter((x) => x.id !== id);
+        store.bookings = store.bookings.filter((b) => b.classId !== id);
+        store.reviews = store.reviews.filter((r) => r.classId !== id);
+        if (ui.pendingClass === id) { ui.pendingClass = null; ui.pendingSlot = null; renderCart(); }
+        if (ui.roll === id) setRoll(getClass("pottery"));
+        save(); refreshCatalogue(); renderMyClasses(); announce(`${c.title} was removed.`);
+        break;
+      }
+      case "delete-data": {
+        store = freshStore();
+        for (let i = CLASSES.length - 1; i >= 0; i -= 1) if (CLASSES[i].custom) CLASSES.splice(i, 1);
+        try { localStorage.removeItem(KEY); } catch (err) { /* nothing stored */ }
+        ui.pendingClass = null; ui.pendingSlot = null; ui.lastBookingId = null;
+        $("#f-first").value = ""; $("#f-email").value = "";
+        refreshCatalogue(); renderCart(); setRoll(getClass("pottery"));
+        $("#delete-done").hidden = false; announce("Everything saved on this device is deleted.");
+        break;
+      }
       case "filter-hobby": ui.hobby = el.dataset.value; renderClasses(); break;
       case "filter-time": ui.time = el.dataset.value; renderClasses(); break;
       case "set-view": ui.view = el.dataset.value; if (ui.view === "calendar") track("calendar_view"); renderClasses(); break;
       case "filter-level": ui.level = el.dataset.value === "any" ? "any" : Number(el.dataset.value); renderClasses(); break;
       case "filter-day": ui.day = el.dataset.value === "any" ? "any" : Number(el.dataset.value); renderClasses(); break;
-      case "clear-filter": ui.hobby = "all"; ui.level = "any"; ui.day = "any"; ui.time = "any"; ui.q = ""; renderClasses(); $("#classes-title").focus(); announce("Filter cleared. Showing all classes."); break;
+      case "clear-filter": ui.type = "all"; buildHobbyChips(); ui.hobby = "all"; ui.level = "any"; ui.day = "any"; ui.time = "any"; ui.q = ""; renderClasses(); $("#classes-title").focus(); announce("Filter cleared. Showing all classes."); break;
       case "pick-class":
         ui.pendingClass = el.dataset.class; ui.pendingSlot = null;
         track("book_class_click", { where: "classes_card", class_id: ui.pendingClass });
@@ -1802,7 +2455,7 @@ select.input {
       case "manage-booking": ui.highlight = el.dataset.id; go("profile"); break;
       case "open-reviews": ui.reviewClass = el.dataset.class; ui.reviewSort = "newest"; ui.reviewFocus = el.dataset.write === "1"; go("reviews"); break;
       case "review-sort": { ui.reviewSort = el.dataset.value; const c = getClass(ui.reviewClass); if (c) renderReviewList(c); break; }
-      case "resend-email": { const b = store.bookings.find((x) => x.id === ui.lastBookingId); if (b) startEmail(b); break; }
+      case "resend-email": { const b = store.bookings.find((x) => x.id === (el.dataset.id || ui.lastBookingId)); if (b) startEmail(b); break; }
       case "other-time": {
         ui.pendingSlot = el.dataset.slot; $("#f-slot").value = ui.pendingSlot;
         $("#already").hidden = true; renderSummary(); renderCart();
@@ -1819,13 +2472,18 @@ select.input {
         announce("Email cleared. Type your friend's email, then tap Book now.");
         break;
       case "cancel-booking": {
-        const i = store.bookings.findIndex((b) => b.id === el.dataset.id);
-        if (i > -1) {
-          const b = store.bookings[i];
-          store.bookings.splice(i, 1);
-          store.taken[b.slotId] = Math.max(0, (store.taken[b.slotId] || 1) - 1);
-          save(); renderProfile(); announce("Booking cancelled.");
-        }
+        const b = store.bookings.find((x) => x.id === el.dataset.id);
+        if (!b) break;
+        const group = [b];
+        if (b.friendId) { const f = store.bookings.find((x) => x.id === b.friendId); if (f) group.push(f); }
+        if (b.invitedBy) { const host = store.bookings.find((x) => x.id === b.invitedBy); if (host) host.friendId = null; }
+        const found = findSlot(b.slotId);
+        const wasFull = found ? spotsLeft(found.s) === 0 : false;
+        store.bookings = store.bookings.filter((x) => !group.includes(x));
+        store.taken[b.slotId] = Math.max(0, (store.taken[b.slotId] || 0) - group.length);
+        save(); renderProfile();
+        announce(group.length > 1 ? `Booking cancelled for you and ${group[1].first}.` : "Booking cancelled.");
+        if (wasFull) fireSlotAlerts(b.slotId);
         break;
       }
       case "logout": store.user = null; save(); $("#f-first").value = ""; $("#f-email").value = ""; renderProfile(); announce("Logged out."); break;
@@ -1835,6 +2493,7 @@ select.input {
 
   document.addEventListener("keydown", (e) => {
     if (e.key !== "Escape") return;
+    if (!$("#remind").hidden) { closeRemind(); return; }
     if (!$("#menu").hidden) closeMenu(true);
     if (!$("#cart").hidden) { closeCart(); $("[data-action='toggle-cart']").focus(); }
   });
@@ -1852,9 +2511,31 @@ select.input {
   $("#f-class").addEventListener("change", (e) => { ui.pendingClass = e.target.value || null; ui.pendingSlot = null; fillSlots(getClass(ui.pendingClass)); renderSummary(); renderCart(); });
   $("#f-slot").addEventListener("change", (e) => { ui.pendingSlot = e.target.value || null; renderSummary(); renderCart(); });
   $("#f-email").addEventListener("input", renderSummary);
+  $("#f-friend").addEventListener("change", (e) => { $("#friend-fields").hidden = !e.target.checked; renderSummary(); if (e.target.checked) $("#f-friend-first").focus(); });
+  $("#f-weekly").addEventListener("change", (e) => { $("#weekly-field").hidden = !e.target.checked; renderSummary(); });
+  $("#f-weeks").addEventListener("change", renderSummary);
+  $("#f-friend-first").addEventListener("input", renderSummary);
+  $("#f-friend-email").addEventListener("input", renderSummary);
+  $("#t-price").addEventListener("input", priceHint);
+  $("#t-hobby").addEventListener("input", hobbyHint);
+  $("#t-photo").addEventListener("change", async (e) => {
+    const file = e.target.files && e.target.files[0];
+    $("#t-photo-err").hidden = true;
+    if (!file) { teachPhoto = null; $("#t-photo-preview").hidden = true; return; }
+    try {
+      teachPhoto = await resizePhoto(file);
+      $("#t-photo-preview").innerHTML = `<img class="ph-img" src="${teachPhoto}" alt="Preview of your class photo">`;
+      $("#t-photo-preview").hidden = false;
+    } catch (err) {
+      teachPhoto = null;
+      $("#t-photo-err").textContent = "We couldn't read that file. Try a JPG or PNG photo."; $("#t-photo-err").hidden = false;
+    }
+  });
   document.addEventListener("submit", (e) => {
     if (e.target.id === "login-form") submitLogin(e);
     if (e.target.id === "review-form") submitReview(e);
+    if (e.target.id === "remind-form") submitRemind(e);
+    if (e.target.id === "teach-form") submitTeach(e);
   });
   // star picker on the review form: hover previews, a choice sticks
   document.addEventListener("change", (e) => { if (e.target.name === "rv-rating") showStars(chosenRating()); });
@@ -1876,8 +2557,9 @@ select.input {
   /* ---------- boot ---------- */
   function start(data) {
     if (data && data.store && Array.isArray(data.store.bookings)) store = data.store;
-    else { const l = loadLocal(); if (l) store = { bookings: l.bookings, user: l.user || null, taken: l.taken || {}, reviews: l.reviews || [], credits: l.credits || {} }; }
-    store.reviews = store.reviews || []; store.credits = store.credits || {};
+    else { const l = loadLocal(); if (l) store = { ...freshStore(), ...l }; }
+    store = { ...freshStore(), ...store };
+    store.customClasses.forEach((c) => { if (!getClass(c.id)) CLASSES.push(c); });
     if (data && data.ui) Object.assign(ui, data.ui);
     buildStatic();
     renderCart();
